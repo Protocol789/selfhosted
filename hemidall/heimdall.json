@@ -1,0 +1,90 @@
+[
+  {
+    "title": "SABnzbd",
+    "colour": "#161b1f",
+    "url": "http://100.83.82.37:8080/",
+    "description": "{\"enabled\":\"1\",\"override_url\":null,\"apikey\":\"575e95ec29103e538aa84c06f99cdab8\"}",
+    "appid": "7aa898759f1d210aaa5edc8a184bfe5e1668b5bd",
+    "appdescription": "SABnzbd is a multi-platform binary newsgroup downloader. The program works in the background and simplifies the downloading verifying and extracting of files from Usenet."
+  },
+  {
+    "title": "Portainer",
+    "colour": "#161b1f",
+    "url": "https://100.83.82.37:9443/",
+    "description": "{\"enabled\":\"1\",\"dataonly\":\"1\",\"override_url\":null,\"username\":\"admin\",\"password\":\"eQrMwmS23O=,c%Bsz(Yg\",\"ignore_tls\":\"1\"}",
+    "appid": "07b796b3a10eaa8b6f485ed2379187a39400b459",
+    "appdescription": "Portainer is a simple management solution for Docker. Easily manage your Docker hosts and Docker Swarm clusters via Portainer web user interface."
+  },
+  {
+    "title": "Sonarr",
+    "colour": "#161b1f",
+    "url": "http://100.83.82.37:8989/",
+    "description": "{\"enabled\":\"1\",\"override_url\":null,\"apikey\":\"f0fc95cfc3b8493e969035d97a2b3227\"}",
+    "appid": "6e2a525ceb737f9ed8badcef5eb20d1502e39656",
+    "appdescription": "Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available."
+  },
+  {
+    "title": "Plex",
+    "colour": "#161b1f",
+    "url": "http://100.83.82.37:32400/",
+    "description": "{\"enabled\":\"1\",\"dataonly\":\"1\",\"override_url\":null,\"token\":\"GSVzrWsA44BiZ6Sj83XY\",\"ignore_tls\":\"1\"}",
+    "appid": "aebda823a279b219476c565be863d83739999502",
+    "appdescription": "Plex media server allows you to aggregate all your personal media and access it anywhere you go. Enjoy your own content on all your devices with Plex."
+  },
+  {
+    "title": "Radarr",
+    "colour": "#fafbfc",
+    "url": "http://100.83.82.37:7878",
+    "description": "{\"enabled\":\"1\",\"override_url\":null,\"apikey\":\"5097aca1a0234e9897ebe80051323d52\"}",
+    "appid": "8a5cd39a1a5dff323d63bbe45fffe0c9c03bd2e7",
+    "appdescription": "Radarr is an independent fork of Sonarr reworked for automatically downloading movies via Usenet and BitTorrent.\r\n\r\nThe project was inspired by other Usenet/BitTorrent movie downloaders such as CouchPotato."
+  },
+  {
+    "title": "Overseerr",
+    "colour": "#161b1f",
+    "url": "http://100.83.82.37:5055",
+    "description": "{\"enabled\":\"1\",\"override_url\":null,\"apikey\":\"MTY4MjUyMTM4MDIwOTNiMzdiOTc4LTgzYTctNDYwMy1iM2U5LTdlOWNhODIwNGZmYSk=\"}",
+    "appid": "989fb18945a331b430fc284edfe6451aa760f8e6",
+    "appdescription": "Overseerr is a free and open source software application for managing requests for your media library. It integrates with your existing services such as Sonarr, Radarr and Plex!"
+  },
+  {
+    "title": "Kasm",
+    "colour": "#161b1f",
+    "url": "https://linux.mudpuppy-alligator.ts.net:4443/",
+    "description": null,
+    "appid": "null",
+    "appdescription": "Kasm"
+  },
+  {
+    "title": "Nginx Proxy Manager",
+    "colour": "#fafbfc",
+    "url": "http://100.83.82.37:81",
+    "description": "{\"enabled\":\"0\",\"override_url\":null,\"email\":\"dzorab@gmail.com\",\"password\":\"logMEin777\"}",
+    "appid": "cbfad988a16a9fbcc1812bc206afcc1f73dd36de",
+    "appdescription": "This project comes as a pre-built docker image that enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt."
+  },
+  {
+    "title": "Uptime Kuma",
+    "colour": "#161b1f",
+    "url": "http://100.83.82.37:1337",
+    "description": null,
+    "appid": "366c6646eedab83cc4b349f198424d2291cbfa76",
+    "appdescription": "It is a self-hosted monitoring tool like \"Uptime Robot\"."
+  },
+  {
+    "title": "Prowlarr",
+    "colour": "#161b1f",
+    "url": "http://100.83.82.37:9696",
+    "description": "{\"enabled\":\"0\",\"override_url\":null,\"apikey\":null}",
+    "appid": "de6ff49c94538e6e13a77f75991141a4fe9af8bf",
+    "appdescription": "Prowlarr is a indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Sonarr, Radarr, Lidarr, and Readarr offering complete management of your indexers with no per app Indexer setup required (we do it all)."
+  },
+  {
+    "title": "Jellyfin",
+    "colour": "#161b1f",
+    "url": "http://linux.mudpuppy-alligator.ts.net:8096",
+    "description": "{\"enabled\":\"0\",\"override_url\":null,\"password\":null}",
+    "appid": "3e0a7f109bd760b9474c78cb652e8c3e82669226",
+    "appdescription": "Jellyfin is the Free Software Media System that puts you in control of managing and streaming your media. There are no strings attached, no premium licenses or features, and no hidden agendas."
+  }
+]

@@ -1,6 +1,7 @@
 version: '3.3'
 services:
     portainer-ce:
+        image: 'portainer/portainer-ce:2.20.1'    
         ports:
             - '8000:8000'
             - '9443:9443'
@@ -21,7 +22,6 @@ services:
             - /var/run/docker.sock:/var/run/docker.sock
             - portainer_data:/data
             - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt
-        image: 'portainer/portainer-ce:2.20.1'
         # command: --log-level DEBUG
 volumes:
   portainer_data:

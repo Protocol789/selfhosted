@@ -16,6 +16,7 @@ Uptime Kuma is an easy-to-use self-hosted monitoring tool.
     * [ ] folder bind mounts
     * [x] native docker volume
     * [x] side car software
+* [x] Open API
 
 ## Info
 
@@ -25,6 +26,14 @@ Uptime Kuma is an easy-to-use self-hosted monitoring tool.
 
 #### A REST API wrapper for [Uptime Kuma](https://github.com/louislam/uptime-kuma) using [Uptime-Kuma-API](https://github.com/lucasheld/uptime-kuma-api)
 
+
+Rest API credentials can be found in **stack.env**
+
+```bash
+TOKEN=$(curl -X -L 'POST' -H 'Content-Type: application/x-www-form-urlencoded' --data 'username=admin&password={passwordfromcompose}' http://127.0.0.1:8000/login/access-token/ | jq -r ".access_token")
+
+curl -L -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" http://127.0.0.1:8000/monitors/
+``` 
 
 ### Links
 

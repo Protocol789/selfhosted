@@ -1,0 +1,3 @@
+---
+portainer_dir: "/home/ciuser/"
+backup_location: "/home/ciuser/"

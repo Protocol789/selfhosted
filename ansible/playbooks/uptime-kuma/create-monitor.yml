@@ -1,5 +1,6 @@
 ---
 - name: Uptime Kuma create monitor
+  # RUn locally on server as its an pythonm API call
   hosts: localhost
   tasks:
 

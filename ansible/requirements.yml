@@ -1,0 +1,5 @@
+---
+collections:
+  - name: vladgh.samba   # https://github.com/vladgh/ansible-collection-vladgh-samba/blob/main/README.md#install-collection
+  - name: geerlingguy.nfs # https://galaxy.ansible.com/ui/standalone/roles/geerlingguy/nfs/install/
+  - name: lucasheld.uptime_kuma # https://github.com/lucasheld/ansible-uptime-kuma

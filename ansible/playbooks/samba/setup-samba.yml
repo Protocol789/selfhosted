@@ -1,0 +1,31 @@
+---
+- name: Setup default Samba server shares
+  hosts: docker
+  become: true
+  tasks:
+
+    - name: Ensure "sambausers" group exists
+      ansible.builtin.group:
+        name: sambausers
+        state: present
+
+    - name: Adding existing user to group sambausers '{{ ansible.user }}'
+      ansible.builtin.user:
+        name: 'daniel'
+        groups: sambausers
+        append: true
+
+    - name: Include Samba Server role
+      ansible.builtin.include_role:
+        name: vladgh.samba.server
+      vars:
+        samba_users:
+          - name: "{{ vault_samba_shares_name }}"
+            password: "{{ vault_samba_shares_password }}"
+        samba_shares_root: /srv/samba
+        samba_shares:
+          - name: publicshare
+            comment: 'Public share, writeable by all members of group "users" '
+            write_list: +sambausers
+            group: sambausers
+            browseable: 'yes'

@@ -1,0 +1,13 @@
+---
+
+portainer:
+  hosts:
+    dockerhost01:
+      ansible_host: 192.168.68.211
+  vars:
+    ansible_user: ciuser
+    portainer_apikey: "ptr_62eig18tlAMCuN3KOWuFAvd1OmnqX+5reGnSbPMY0zM="
+
+staging:
+  children:
+    portainer:

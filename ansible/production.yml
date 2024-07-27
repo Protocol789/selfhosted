@@ -1,0 +1,66 @@
+---
+
+proxmox:
+  hosts:
+    proxmox1:
+      ansible_host: 192.168.68.200
+    proxmox2:
+      ansible_host: 192.168.68.210
+
+telegrafservers:
+  hosts:
+    NJP0138.NJP.DGCOPS.COM:
+      ansible_host: 192.168.68.103
+  vars:
+    ansible_user: daniel
+
+docker:
+  hosts:
+    dockerhost01:
+      ansible_host: 192.168.68.211
+    backend.server:
+      ansible_host: backend.server
+    frontend.server:
+      ansible_host: frontend.server
+  vars:
+    ansible_user: ciuser
+
+portainer:
+  hosts:
+    backend.server:
+      ansible_host: backend.server
+#    frontend.server:
+#      ansible_host: frontend.server
+  vars:
+    ansible_user: ciuser
+
+dns:
+  hosts:
+    pihole1:
+      ansible_host: 192.168.68.111
+    pihole2:
+      ansible_host: 192.168.68.222
+  vars:
+    ansible_user: ciuser
+
+npm:
+  hosts:
+    frontend.server:
+      ansible_host: frontend.server
+
+backupserver:
+  hosts:
+    dockerhost01:
+      ansible_host: dockerhost01.server
+
+backupclients:
+  hosts:
+    backend.server:
+      ansible_host: backend.server
+    frontend.server:
+      ansible_host: frontend.server
+
+prod:
+  children:
+    docker:
+    dns:

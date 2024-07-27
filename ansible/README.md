@@ -36,12 +36,24 @@ Guides you on how to install Ansible and get a base project up and running.
 ##### Reading the Password File Automatically
 
 1. `nano ansible.cfg` Open your ansible config
-2. Add the path to the file here
+2. Add the path to the file below so that ansible automatically loads this when working with a vault
 
 ```
 [defaults]
 . . .
 vault_password_file = ./.vault_pass
 ```
+
+
+##### View all vars view ansible debug
+
+```
+ansible -i production.yml dockerhost01 -m debug -a 'var=hostvars[inventory_hostname]'
+```
+
+`-i production.yml` The inventory you are looking at
+`dockerhost01` The host you are interested in
+`-m debug` Module to run
+`-a var=hostvars[inventory_hostname]` Module arguments
 
 [def]: https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data

@@ -1,0 +1,2 @@
+---
+portainer_apikey: "{{ vault_portainer_dockerhost01 }}"

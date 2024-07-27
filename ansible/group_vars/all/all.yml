@@ -1,6 +1,5 @@
 ---
 api_url: https://uptimekuma.zorab.im
 
-
 api_username: "{{ vault_api_username }}"
 api_password: "{{ vault_api_password }}"

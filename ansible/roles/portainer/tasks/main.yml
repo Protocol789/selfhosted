@@ -1,0 +1,12 @@
+---
+# tasks file for portainer
+
+- name: Backs up the portainer files
+  ansible.builtin.import_tasks: backup_files.yml
+  become: true
+  tags: conf
+
+- name: Install portainer via docker compose file
+  ansible.builtin.import_tasks: install_portainer.yml
+  become: true
+  tags: install

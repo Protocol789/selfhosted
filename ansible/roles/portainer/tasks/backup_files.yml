@@ -1,0 +1,25 @@
+---
+- name: Run local shell script backup for Portainer
+  ansible.builtin.script: "files/backup-portainer.sh {{ portainer_apikey }} {{ inventory_hostname }} {{ backup_location }}"
+  register: result
+  # Script returns non-zero for any error that occours
+  changed_when: result.rc == 0
+  failed_when: result.rc != 0
+
+###### OLD #######
+
+# - name: Copy over script for backup process
+#   ansible.builtin.copy:
+#     src: files/{{ item }}
+#     dest: "{{ portainer_dir }}{{ item }}"
+#     mode: "0755"
+#   with_items: "{{ script }}"
+
+# - name: Include credentials variables
+#   ansible.builtin.include_vars: credentials.yml
+
+# - name: Run the backup script on the host
+#   ansible.builtin.command: "{{ portainer_dir }}backup-portainer.sh {{ portainer_apikey }}"
+#   register: result
+#   changed_when: result.rc == 0
+#   failed_when: result.rc != 0

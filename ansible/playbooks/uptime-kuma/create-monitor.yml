@@ -1,0 +1,24 @@
+---
+- name: Uptime Kuma create monitor
+  hosts: localhost
+  tasks:
+
+    - name: Login with credentials once and register the result
+      lucasheld.uptime_kuma.login:
+        api_url: "{{ api_url }}"
+        api_username: "{{ api_username }}"
+        api_password: "{{ api_password }}"
+      register: result
+
+    - name: Extract the token from the result and set it as fact
+      ansible.builtin.set_fact:
+        api_token: "{{ result.token }}"
+
+    - name: Login by token and create a monitor
+      lucasheld.uptime_kuma.monitor:
+        api_url: "{{ api_url }}"
+        api_token: "{{ api_token }}"
+        name: Prowlarr
+        type: http
+        url: https://prowlarr.zorab.im/
+        state: present

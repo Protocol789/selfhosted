@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1.23.12
+    container_name: uptime-kuma
+    volumes:
+      - /home/daniel/Documents/Docker/uptime-kuma/uptime-kuma-data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "1337:3001"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.uptimekuma.rule=Host(`uptimekuma.zorab.im`)"
+      - "traefik.http.routers.uptimekuma.entrypoints=websecure"
+      - "traefik.http.routers.uptimekuma.tls.domains[0].main=zorab.im"
+      - "traefik.http.routers.uptimekuma.tls.domains[0].sans=*.zorab.im"
+      - "traefik.http.routers.uptimekuma.tls.certResolver=cloudflare"
+      - "traefik.http.services.uptimekuma.loadbalancer.server.port=1337"
+    restart: always
+  api:
+    container_name: backend
+    image: medaziz11/uptimekuma_restapi
+    env_file:
+      - stack.env
+    volumes:
+      - api:/db
+    restart: always
+    environment:
+      - KUMA_SERVER=${KUMA_SERVER}
+      - KUMA_USERNAME=${KUMA_USERNAME}
+      - KUMA_PASSWORD=${KUMA_PASSWORD}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+    depends_on:
+      - uptime-kuma
+    ports:
+      - "8007:8000"
+
+volumes:
+  uptime-kuma:
+  api:

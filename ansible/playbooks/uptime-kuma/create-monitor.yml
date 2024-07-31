@@ -1,7 +1,10 @@
 ---
 - name: Uptime Kuma create monitor
-  # Run locally on server as its an python API call
+  # Run locally on server as its an python package from ansible galaxy
   hosts: localhost
+  connection: local
+  vars_files:
+    - uptimekuma_monitors.yml
   tasks:
 
     - name: Login with credentials once and register the result
@@ -15,11 +18,33 @@
       ansible.builtin.set_fact:
         api_token: "{{ result.token }}"
 
-    - name: Login by token and create a monitor
+    - name: Login by token and create a monitor for **HTTP** by looping over YAML entries
       lucasheld.uptime_kuma.monitor:
         api_url: "{{ api_url }}"
         api_token: "{{ api_token }}"
-        name: Prowlarr
-        type: http
-        url: https://prowlarr.zorab.im/
+        name: "{{ item.name }}"
+        type: "{{ item.type }}"
+        url: "{{ item.url }}"
         state: present
+      loop: "{{ monitors_http | flatten(levels=1) }}"
+
+    - name: Login by token and create a monitor for **docker** by looping over YAML entries
+      lucasheld.uptime_kuma.monitor:
+        api_url: "{{ api_url }}"
+        api_token: "{{ api_token }}"
+        name: "{{ item.name }}"
+        type: "{{ item.type }}"
+        docker_host: "{{ item.docker_host }}"
+        docker_container: "{{ item.docker_container }}"
+        state: present
+      loop: "{{ monitors_docker | flatten(levels=1) }}"
+
+    #  # Create a single monitor for Home assistant
+    # - name: Login by token and create a monitor
+    #   lucasheld.uptime_kuma.monitor:
+    #     api_url: "{{ api_url }}"
+    #     api_token: "{{ api_token }}"
+    #     name: Home Assistant
+    #     type: http
+    #     url: http://homeassistant.server:8123
+    #     state: present

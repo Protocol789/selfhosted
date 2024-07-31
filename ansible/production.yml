@@ -43,6 +43,11 @@ dns:
   vars:
     ansible_user: ciuser
 
+localhost:
+  hosts:
+    ansible_server:
+      ansible_host: localhost
+
 npm:
   hosts:
     frontend.server:

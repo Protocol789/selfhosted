@@ -1,0 +1,34 @@
+---
+# These are http only entries for Uptime Kuma
+monitors_http:
+  - name: Plex
+    url: https://plex.zorab.im/identity
+    type: keyword
+  - name: Docker containers
+    url: https://
+    type: group
+  - name: Docuseal
+    url: https://docuseal.zorab.im
+    type: http
+  - name: Paperless
+    url: https://paperless.zorab.im
+    type: http
+  - name: Stirling PDF
+    url: https://pdf.zorab.im
+    type: http
+  - name: Media
+    url: https://
+    type: group
+  - name: Download
+    url: https://
+    type: group
+  - name: Prowlarr
+    url: https://prowlarr.zorab.im/
+    type: http
+
+# These are entries for docker based montioring
+monitors_docker:
+  - name: Sonarr
+    type: docker
+    docker_host: 1
+    docker_container: sonarr

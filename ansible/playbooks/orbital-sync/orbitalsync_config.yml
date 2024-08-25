@@ -1,0 +1,8 @@
+---
+# Pihole primary server URL
+pihole_one_url: "http://192.168.68.111"
+
+# Pihole secondary server URL
+pihole_two_url: "http://192.168.68.222"
+
+compose_path: "/home/daniel/orbital-sync"

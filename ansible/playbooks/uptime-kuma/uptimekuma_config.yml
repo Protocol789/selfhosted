@@ -1,5 +1,7 @@
 ---
+# Uptime Kuma URL
 api_url: https://uptimekuma.zorab.im
 
+# Usernam and password stored in the vault.
 api_username: "{{ vault_api_username }}"
 api_password: "{{ vault_api_password }}"

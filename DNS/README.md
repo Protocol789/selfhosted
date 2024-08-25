@@ -22,6 +22,11 @@ Provides DNS and network wide advert blocking for site.
 http://pitwo.server/admin  
 http://pione.server/admin
 
+### Config locations
+
+Custom Cname file
+`/etc/dnsmasq.d/05-pihole-custom-cname.conf`
+
 ### Install 
 
 [Guide](https://tteck.github.io/Proxmox/#pi-hole-lxc)  

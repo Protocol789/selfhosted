@@ -1,0 +1,31 @@
+---
+- name: Setup orbital-sync for pihole
+  hosts: dockerhost01
+  become: true
+  vars_files:
+    - orbitalsync_config.yml
+  tasks:
+
+    - name: Copy the Docker compose file over
+      ansible.builtin.copy:
+        src: "/home/daniel/selfhosted/software/orbital sync/compose.yml"
+        dest: "{{ compose_path }}"
+        owner: daniel
+        group: daniel
+        mode: u=rw,g=r,o=r
+
+    - name: Template the .env file with variable replacements
+      ansible.builtin.template:
+        src: "/home/daniel/selfhosted/software/orbital sync/.env.j2"
+        dest: "{{ compose_path }}/.env"
+        owner: daniel
+        group: daniel
+        mode: u=rw,g=r,o=r
+
+    - name: Deploy docker compose stack for Orbital sync
+      community.docker.docker_compose_v2:
+        project_src: "{{ compose_path }}"
+        env_files: .env
+        project_name: orbital-sync
+        pull: always
+        state: present

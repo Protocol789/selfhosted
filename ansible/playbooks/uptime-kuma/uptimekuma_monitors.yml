@@ -1,5 +1,5 @@
 ---
-# These are http only entries for Uptime Kuma
+# These are http only entries for Uptime Kuma monitors
 monitors_http:
   - name: Plex
     url: https://plex.zorab.im/identity

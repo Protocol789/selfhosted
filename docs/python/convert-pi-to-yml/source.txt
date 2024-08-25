@@ -1,0 +1,17 @@
+192.168.68.200 proxmox.server
+192.168.68.201 homeassistant.server
+192.168.68.204 turnkey.server
+192.168.68.202 frontend.server
+192.168.68.203 backend.server
+192.168.68.203 ssh.backend.server.zorab.im
+192.168.68.210 proxmox2.server
+192.168.68.111 pione.server
+192.168.68.222 pitwo.server
+192.168.68.211 dockerhost01.server
+192.168.68.202 sabnzbd.zorab.im
+192.168.68.202 sonarr.zorab.im
+192.168.68.203 paperless.zorab.im
+192.168.68.211 whoami.zorab.im
+192.168.68.211 radarr.zorab.im
+fe80::be24:11ff:fe33:3708 dockerhost01.server
+192.168.68.207 proxmox3.server

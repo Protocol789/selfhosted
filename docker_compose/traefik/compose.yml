@@ -1,0 +1,47 @@
+version: "3.3"
+
+services:
+
+  traefik:
+    image: "traefik:v2.11"
+    container_name: "traefik"
+    command:
+      # - "--log.level=DEBUG"
+      - "--api.insecure=true"
+      
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      # - "--providers.docker.useBindPortIP=true"      
+      
+      # Configuration for traefik-kop to allow connection via docker labels from remote docker hosts 
+      - "--providers.redis.endpoints=192.168.68.211:6379"
+      - "--providers.redis.rootkey=traefik"
+      # Configuration for file based hosts located on the bind mount
+      - "--providers.file.directory=/fileconf"
+      - "--providers.file.watch=true"          
+      # Default entry points
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      # Certificate based configuration for automatic certs using CF + LetsEncrypt
+      - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
+      - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
+      # - "--certificatesresolvers.cloudflare.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"    # STAGING API
+      - "--certificatesresolvers.cloudflare.acme.email=postmaster@zorab.im"
+      - "--certificatesresolvers.cloudflare.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    env_file:
+      - "stack.env"
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/data/traefik:/fileconf"
+    networks:
+      - traefik_public 
+    restart: unless-stopped
+ 
+networks:
+  traefik_public:
+    external: true      

@@ -1,28 +1,28 @@
 version: '3.3'
 services:
-    portainer-ce:
-        image: 'portainer/portainer-ce:2.20.1'    
-        ports:
-            - '8000:8000'
-            - '9443:9443'
-            - '9000:9000'
-        container_name: portainer
-        labels:
-          - "traefik.enable=true"
-          - "traefik.http.routers.portainer.rule=Host(`portainer.zorab.im`)"
-          - "traefik.http.routers.portainer.entrypoints=websecure"
-          - "traefik.http.routers.portainer.tls.domains[0].main=zorab.im"
-          - "traefik.http.routers.portainer.tls.domains[0].sans=*.zorab.im"
-          - "traefik.http.routers.portainer.tls.certResolver=cloudflare"
-          - "traefik.http.services.portainer.loadbalancer.server.port=9000"
-          #- "traefik.http.services.portainer.loadbalancer.server.url=https://backend.server:9443"
-          #- "traefik.http.services.portainer.loadbalancer.server.scheme=https"
-        restart: always
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock
-            - portainer_data:/data
-            - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt
-        # command: --log-level DEBUG
+  portainer-ce:
+    image: 'portainer/portainer-ce:2.20.1'
+    ports:
+      - '8000:8000'
+      - '9443:9443'
+      - '9000:9000'
+    container_name: portainer
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.zorab.im`)"
+      - "traefik.http.routers.portainer.entrypoints=websecure"
+      - "traefik.http.routers.portainer.tls.domains[0].main=zorab.im"
+      - "traefik.http.routers.portainer.tls.domains[0].sans=*.zorab.im"
+      - "traefik.http.routers.portainer.tls.certResolver=cloudflare"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+      # - "traefik.http.services.portainer.loadbalancer.server.url=https://backend.server:9443"
+      # - "traefik.http.services.portainer.loadbalancer.server.scheme=https"
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt
+  # command: --log-level DEBUG
 volumes:
   portainer_data:
     external: true

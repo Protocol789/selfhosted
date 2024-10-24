@@ -27,6 +27,9 @@ http://pione.server/admin
 Custom Cname file
 `/etc/dnsmasq.d/05-pihole-custom-cname.conf`
 
+Custom DNS entries
+`/etc/pihole/custom.list`
+
 ### Install 
 
 [Guide](https://tteck.github.io/Proxmox/#pi-hole-lxc)  

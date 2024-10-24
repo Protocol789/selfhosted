@@ -18,6 +18,7 @@ Lets encrypt handles the certs for us via [DNS challenge ][def] feature.
 ```yaml
       - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
       - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
+      # Optionally uncomment the following lines if you want to test/debug:
       # - "--certificatesresolvers.cloudflare.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"    # STAGING API
       - "--certificatesresolvers.cloudflare.acme.email=postmaster@zorab.im"
       - "--certificatesresolvers.cloudflare.acme.storage=/letsencrypt/acme.json

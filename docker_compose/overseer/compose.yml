@@ -1,0 +1,23 @@
+---
+version: "2.1"
+services:
+  overseerr:
+    image: lscr.io/linuxserver/overseerr:latest
+    container_name: overseerr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /home/daniel/Documents/Docker/overseer:/config
+    ports:
+      - 5055:5055
+    labels:
+     - "traefik.enable=true"
+     - "traefik.http.routers.overseer.rule=Host(`overseer.zorab.im`)"
+     - "traefik.http.routers.overseer.entrypoints=websecure"
+     - "traefik.http.routers.overseer.tls.domains[0].main=zorab.im"
+     - "traefik.http.routers.overseer.tls.domains[0].sans=*.zorab.im"
+     - "traefik.http.routers.overseer.tls.certResolver=cloudflare"
+     - "traefik.http.services.overseer.loadbalancer.server.port=5055"      
+    restart: unless-stopped

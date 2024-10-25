@@ -1,24 +1,25 @@
-version: "3.3"
-
 services:
 
   traefik:
     image: "traefik:v2.11"
     container_name: "traefik"
     command:
+      # Base Config
       # - "--log.level=DEBUG"
       - "--api.insecure=true"
-      
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
-      # - "--providers.docker.useBindPortIP=true"      
-      
-      # Configuration for traefik-kop to allow connection via docker labels from remote docker hosts 
+      # - "--providers.docker.useBindPortIP=true"
+      # Etcd conifguration provider
+      - "--providers.etcd=true"
+      - "--providers.etcd.endpoints=192.168.68.211:2379"
+      - "--providers.etcd.rootkey=traefik"
+      # Configuration for traefik-kop to allow connection via docker labels from remote docker hosts
       - "--providers.redis.endpoints=192.168.68.211:6379"
       - "--providers.redis.rootkey=traefik"
       # Configuration for file based hosts located on the bind mount
       - "--providers.file.directory=/fileconf"
-      - "--providers.file.watch=true"          
+      - "--providers.file.watch=true"
       # Default entry points
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
@@ -39,9 +40,9 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "/data/traefik:/fileconf"
     networks:
-      - traefik_public 
+      - traefik_public
     restart: unless-stopped
- 
+
 networks:
   traefik_public:
-    external: true      
+    external: true

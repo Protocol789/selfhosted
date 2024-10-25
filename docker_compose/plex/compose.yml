@@ -1,0 +1,26 @@
+---
+version: "2.1"
+services:
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - VERSION=docker
+      - PLEX_CLAIM=claim-npfvzxo5pdV8A3sQz4xA
+    volumes:
+      - /home/daniel/Documents/Docker/plex:/config
+      - /home/daniel/Videos/tv:/tv
+      - /home/daniel/Videos/movies:/movies
+    labels:
+     - "traefik.enable=true"
+     - "traefik.http.routers.plex.rule=Host(`plex.zorab.im`)"
+     - "traefik.http.routers.plex.entrypoints=websecure"
+     - "traefik.http.routers.plex.tls.domains[0].main=zorab.im"
+     - "traefik.http.routers.plex.tls.domains[0].sans=*.zorab.im"
+     - "traefik.http.routers.plex.tls.certResolver=cloudflare"
+     - "traefik.http.services.plex.loadbalancer.server.port=32400"      
+    restart: unless-stopped

@@ -9,8 +9,8 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=America/New_York
-      - ORIGIN=http://localhost:3000 # set to the url or ip where the frontend is hosted
+      - TZ=Europe/London
+      - ORIGIN=https://riven.zorab.im # set to the url or ip where the frontend is hosted
       - BACKEND_URL=http://riven:8080
       - DIALECT=postgres
       - DATABASE_URL=postgres://postgres:postgres@riven-db/riven
@@ -28,7 +28,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=America/New_York
+      - TZ=Europe/London
       - RIVEN_FORCE_ENV=true
       - RIVEN_DATABASE_HOST=postgresql+psycopg2://postgres:postgres@riven-db/riven
     healthcheck:
@@ -39,6 +39,7 @@ services:
     volumes:
       - ./data:/riven/data
       - /mnt:/mnt
+      - /media/daniel/Data/Videos:/media
     depends_on:
       riven_postgres:
         condition: service_healthy

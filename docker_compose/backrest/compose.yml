@@ -1,7 +1,7 @@
 
 services:
   backrest:
-    image: garethgeorge/backrest:v1.4-scratch
+    image: garethgeorge/backrest:v1.0.0
     container_name: backrest
     hostname: backrest
     volumes:

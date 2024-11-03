@@ -1,7 +1,7 @@
-version: "3.2"
+
 services:
   backrest:
-    image: garethgeorge/backrest:v1.6.1-scratch
+    image: garethgeorge/backrest:v1.4-scratch
     container_name: backrest
     hostname: backrest
     volumes:
@@ -32,4 +32,4 @@ services:
  
 networks:
   traefik_public:
-    external: true           
+    external: true

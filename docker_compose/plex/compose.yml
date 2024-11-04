@@ -1,6 +1,6 @@
 services:
   plex:
-    image: lscr.io/linuxserver/plex:latest
+    image: lscr.io/linuxserver/plex:1.41.1.9057-af5eaea7a-ls241
     container_name: plex
     network_mode: host
     environment:
@@ -8,12 +8,13 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
       - VERSION=docker
-      - PLEX_CLAIM=claim-npfvzxo5pdV8A3sQz4xA
+      - PLEX_CLAIM=${PLEX_CLAIM}
     volumes:
       - /home/daniel/Documents/Docker/plex:/config
       - /home/daniel/Videos/tv:/tv
       - /home/daniel/Videos/movies:/movies
-      - /mnt/zurg/__all__:/zurg
+      - /mnt/zurg/movies:/zurg/movies
+      - /mnt/zurg/shows:/zurg/series
     labels:
      - "traefik.enable=true"
      - "traefik.http.routers.plex.rule=Host(`plex.zorab.im`)"

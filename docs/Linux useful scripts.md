@@ -7,6 +7,16 @@ Change shell from sh to bash etc
 chsh -s /bin/bash
 ```
 
+Add a user
+```bash
+sudo useradd -m daniel
+```
+
+Add to group
+```bash
+sudo usermod -aG sudo daniel
+```
+
 [Reference here][def]
 
 ## Privileged access 

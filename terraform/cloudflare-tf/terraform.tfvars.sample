@@ -1,0 +1,5 @@
+cloudflare_zone           = "example.com"
+cloudflare_zone_id        = "023e105f4ecef8ad9ca31a8372d0c353"
+cloudflare_account_id     = "372e67954025e0ba6aaa6d586b9e0b59"
+cloudflare_email          = "user@example.com"
+cloudflare_token          = "y3AalHS_E7Vabk3c3lX950F90_Xl7YtjSlzyFn_X"

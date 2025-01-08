@@ -36,7 +36,8 @@ resource "cloudflare_zero_trust_access_policy" "http_policy" {
 }
 
 
-resource "cloudflare_zero_trust_tunnel_cloudflared_config" "example_config" {
+
+resource "cloudflare_zero_trust_tunnel_cloudflared_config" "example" {
   account_id = var.cloudflare_account_id
   tunnel_id  = data.cloudflare_zero_trust_tunnel_cloudflared.http_tunnel.id
 
@@ -54,3 +55,8 @@ resource "cloudflare_zero_trust_tunnel_cloudflared_config" "example_config" {
     }
   }
 }
+
+# import {
+#   id = "52abbc52-77c4-4b59-8f7e-7ec09b646b85"
+#   to = "cloudflare_zero_trust_tunnel_cloudflared_config"
+# }

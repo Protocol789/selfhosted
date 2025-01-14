@@ -26,3 +26,14 @@ variable "cloudflare_token" {
   type        = string
   sensitive   = true
 }
+
+variable "cloudflare_app_name" {
+  description = "The application cname you want to setup"
+  type        = string
+  #default     = ""
+}
+
+variable "cloudflare_tunnelname" {
+  description = "The cloudflare tunnel name reference to add the appliocation to"
+  type        = string
+}

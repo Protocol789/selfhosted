@@ -1,0 +1,19 @@
+---
+- name: Deploy new appplication to cloudflare tunnel
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    project_dir: "/home/daniel/selfhosted/terraform/cloudflare-tf" # folder that contains main.tf, ...
+
+  tasks:
+    - name: Run terraform
+      community.general.terraform:
+        project_path: '{{ project_dir }}'
+        state: present
+        variables:
+          cloudflare_app_name: "{{ app_name }}"
+      register: output
+
+    - debug:
+        var: output

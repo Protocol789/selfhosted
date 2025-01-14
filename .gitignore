@@ -32,3 +32,6 @@ override.tf.json
 *tfplan*
 *.plan*
 *lock*
+
+# ignore sensitive environment variables
+*.env

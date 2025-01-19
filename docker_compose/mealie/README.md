@@ -17,6 +17,7 @@
     - [x] native docker volume
 * [ ] Side car config required
 * [x] Open API
+* [x] SSO
 
 
 ## Links

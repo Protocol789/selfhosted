@@ -1,25 +1,26 @@
 services:
   mealie:
-    image: ghcr.io/mealie-recipes/mealie:v2.4.2 
+    image: ghcr.io/mealie-recipes/mealie:v2.4.2
     container_name: mealie
     restart: always
     ports:
-        - "9925:9000"
+      - "9925:9000"
     deploy:
       resources:
         limits:
-          memory: 1000M 
+          memory: 1000M
     volumes:
       - mealie-data:/app/data/
     env_file:
       - stack.env
     labels:
-       - "traefik.enable=true"
-       - "traefik.http.routers.mealie.rule=Host(`mealie.zorab.im`)"
-       - "traefik.http.routers.mealie.entrypoints=websecure"
-       - "traefik.http.routers.mealie.tls.domains[0].main=zorab.im"
-       - "traefik.http.routers.mealie.tls.domains[0].sans=*.zorab.im"
-       - "traefik.http.routers.mealie.tls.certResolver=cloudflare"
-       - "traefik.http.services.mealie.loadbalancer.server.port=9925" 
+      # These can be removed if traefik reverse proxy not used
+      - "traefik.enable=true"
+      - "traefik.http.routers.mealie.rule=Host(`mealie.zorab.im`)"
+      - "traefik.http.routers.mealie.entrypoints=websecure"
+      - "traefik.http.routers.mealie.tls.domains[0].main=zorab.im"
+      - "traefik.http.routers.mealie.tls.domains[0].sans=*.zorab.im"
+      - "traefik.http.routers.mealie.tls.certResolver=cloudflare"
+      - "traefik.http.services.mealie.loadbalancer.server.port=9925"
 volumes:
   mealie-data:

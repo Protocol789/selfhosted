@@ -1,0 +1,4 @@
+proxmox_api_url             = "zorab.im"
+proxmox_api_token_id        = "your-token-id" # Replace with your API token ID
+proxmox_api_token_secret    = "your-token-secret" # Replace with your API token secret 
+proxmox_tls_insecure        = true # Set to false if using a valid SSL certificate

@@ -25,6 +25,17 @@ docker:
   vars:
     ansible_user: ciuser
 
+development:
+  hosts:
+    devserver01:
+      ansible_host: devserver01.server
+    devserver02:
+      ansible_host: devserver02.server
+    devserver03:
+      ansible_host: devserver03.server
+  vars:
+    ansible_user: ciuser
+
 portainer:
   hosts:
     backend.server:

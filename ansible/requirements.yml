@@ -4,3 +4,4 @@ collections:
   - name: lucasheld.uptime_kuma # https://github.com/lucasheld/ansible-uptime-kuma
 roles:
   - name: geerlingguy.nfs # https://galaxy.ansible.com/ui/standalone/roles/geerlingguy/nfs/install/
+  - name: artis3n.tailscale # https://galaxy.ansible.com/ui/standalone/roles/artis3n/tailscale/

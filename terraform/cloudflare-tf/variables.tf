@@ -37,3 +37,8 @@ variable "cloudflare_tunnelname" {
   description = "The cloudflare tunnel name reference to add the appliocation to"
   type        = string
 }
+
+variable "cloudflare_tunnelid" {
+  description = "The cloudflare tunnel ID reference to add the application to"
+  type        = string
+}

@@ -1,0 +1,23 @@
+---
+- name: Install qemu agent
+  hosts: development
+  gather_facts: false
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.command: apt update
+
+    - name: Update apt cache
+      ansible.builtin.command: apt update
+
+    - name: Install qemu guest agent
+      ansible.builtin.apt:
+        name: qemu-guest-agent
+        state: present
+
+    - name: Upgrade all packages
+      ansible.builtin.command: apt upgrade -y
+
+    - name: Reboot host
+      ansible.builtin.reboot:

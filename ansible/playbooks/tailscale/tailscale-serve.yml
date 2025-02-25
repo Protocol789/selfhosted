@@ -1,0 +1,23 @@
+- name: Run tailscale server to port 3000
+  hosts: development
+  gather_facts: false
+  become: true
+
+  tasks:
+
+    - name: Tailscale serve
+      ansible.builtin.command: tailscale serve --bg 3000
+      register: command_output
+      changed_when: false
+
+    # - name: Print the captured output
+    #   ansible.builtin.debug:
+    #     var: command_output.stdout
+
+    - name: Extract the URL using regex_search
+      ansible.builtin.set_fact:
+        extracted_url: "{{ command_output | regex_search('https://[a-zA-Z0-9.-]+\\.ts\\.net') }}"
+
+    - name: Display the extracted URL
+      ansible.builtin.debug:
+        msg: "Extracted URL: {{ extracted_url }}"

@@ -73,6 +73,10 @@ Assumes .ssh folder exists already.
 cat ~/.ssh/id_rsa.pub | ssh <user>@<host> "cat >> ~/.ssh/authorized_keys"
 ```
 
+## Copy file from local to remote server SSH 
+
+`scp -P <SERVER_PORT> <PATH_TO_LOCAL_FILE> <SERVER_USER@SERVER_IP_ADDRESS>:<PATH_TO_DESTINATION_FOLDER>`
+
 [def]: https://www.cyberciti.biz/faq/how-to-change-shell-to-bash/
 [def2]: https://unix.stackexchange.com/questions/176997/sudo-as-another-user-with-their-environment
 [def3]: https://www.baeldung.com/linux/get-octal-file-permissions#:~:text=The%20stat%20command%20is%20the,the%20filename%2C%20and%20many%20others.

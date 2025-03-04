@@ -6,6 +6,8 @@ proxmox:
       ansible_host: 192.168.68.200
     proxmox2:
       ansible_host: 192.168.68.210
+    proxmox5:
+      ansible_host: proxmox5.server
 
 telegrafservers:
   hosts:

@@ -45,7 +45,7 @@ Test Port Forwarding:
 ###
 
 
-. View PREROUTING Rules (NAT Table)
+### View PREROUTING Rules (NAT Table)
 To check if traffic is being redirected before routing:
 
 ```sh
@@ -55,4 +55,52 @@ sudo iptables -t nat -L PREROUTING -v -n
 * `-t nat` : Selects the NAT table (where PREROUTING is found).
 * `-L PREROUTING` : Lists all PREROUTING rules.
 * `-v -n` : Shows details (verbose) and avoids DNS lookups for faster output.
-```
+
+
+### Remove rules
+
+#### List Rules with Line Numbers
+
+Before deleting a rule, list the current rules with line numbers:
+
+For PREROUTING (NAT table):
+`sudo iptables -t nat -L PREROUTING -v --line-numbers`
+
+For FORWARD (Filter table):
+`sudo iptables -t filter -L FORWARD -v --line-numbers`
+
+1. Check the Rule
+
+To list the POSTROUTING rules in the nat table with line numbers:
+
+`sudo iptables -t nat -L POSTROUTING -v --line-numbers`
+This will show the existing POSTROUTING rules.
+Look for a rule matching MASQUERADE on ports 5000-5200.
+
+2. Remove the Rule by Line Number
+
+Once you identify the line number of the rule, delete it:
+`sudo iptables -t nat -D POSTROUTING <line_number>`
+
+For example, if the rule is line 2, run:
+`sudo iptables -t nat -D POSTROUTING 2`
+
+2. Delete a Specific Rule
+Once you find the line number of the rule you want to remove, use:
+
+For PREROUTING (NAT table):
+`sudo iptables -t nat -D PREROUTING <line_number>`
+
+For FORWARD (Filter table):
+`sudo iptables -t filter -D FORWARD <line_number>`
+
+Example: If the rule is on line 3 in PREROUTING, run:
+
+`sudo iptables -t nat -D PREROUTING 3`
+
+#### 4. Save Changes
+
+If you want the changes to persist after a reboot:
+
+Debian / Ubuntu
+`sudo netfilter-persistent save` 

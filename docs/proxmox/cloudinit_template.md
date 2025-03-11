@@ -4,6 +4,7 @@ Create own DEbian 12 cloud initi template
 
 TAKEN FROM HERE
 https://pycvala.de/blog/proxmox/create-your-own-debian-12-cloud-init-template/
+Also used [this](https://pycvala.de/blog/proxmox/create-your-own-debian-12-cloud-init-template/) to setup an Ubuntu template images 
 
 ## Steps 
 

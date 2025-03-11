@@ -63,6 +63,11 @@ Check file permissions in octal notion. ie: 0644
 stat --format="%a" filename
 ```
 
+## Find space hogs
+
+Finds top 10 directories in pwd ordered by size
+`sudo du -ah --max-depth=1 2>/dev/null | sort -rh | head -n 10`
+
 [Reference here][def3]
 
 ## Copy SSH public key from windows to linux

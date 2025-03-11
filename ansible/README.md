@@ -28,6 +28,19 @@ Guides you on how to install Ansible and get a base project up and running.
 
 - `ansible-vault encrypt encrypt_me.txt` Encrypt existing files
 
+#### Encrypt a string
+
+Adapted from [here][def2]
+
+Create a vault encrypted variable 
+
+
+Encrypt a piece of text using a vault password file
+1. `ansible-vault encrypt_string --vault-id dev@a_password_file 'foooodev' --name 'the_dev_secret' --encrypt-vault-id dev`
+
+Descrypt a vault encrypted variable (above is saved to file)
+2. `ansible localhost -m ansible.builtin.debug -a var="the_dev_secret" -e "@vars.yml" --vault-id dev@a_password_file`
+
 ##### Running Ansible with Vault-Encrypted Files
 
 1. `echo 'my_vault_password' > .vault_pass`  Create file with vault password in it
@@ -57,3 +70,4 @@ ansible -i production.yml dockerhost01 -m debug -a 'var=hostvars[inventory_hostn
 `-a var=hostvars[inventory_hostname]` Module arguments
 
 [def]: https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data
+[def2]: https://docs.ansible.com/ansible/latest/vault_guide/vault_encrypting_content.html#creating-encrypted-variables

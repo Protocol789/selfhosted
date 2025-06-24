@@ -28,6 +28,15 @@ New proxmox server first steps.
     proxmox5:
       ansible_host: proxmox5.server
     ```
+3. Add API Users via [terraform](API_USER_terraform.md) and [monitoring](API_USER.md)
+4. Add to [homepage](https://homepage.zorab.im/#servers) via the `services.yaml` file
+5. Add to Traefik reverse proxy
+6. Add to beszel
+3. Add to Get Grist
+    1. https://docs.getgrist.com/uPudgVrqr5ce/Servers
+
+    
+       
 
 #### SSH Public Keys
 

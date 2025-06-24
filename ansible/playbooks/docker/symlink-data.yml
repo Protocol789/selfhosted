@@ -1,0 +1,13 @@
+---
+- name: Create a symbolic link between CEPH FS and /docker
+  hosts: docker
+  gather_facts: true
+  become: true
+
+  tasks:
+
+    - name: Create a symbolic link for docker files to ceph mount
+      ansible.builtin.file:
+        src: /mnt/cephfs/docker
+        dest: /docker
+        state: link

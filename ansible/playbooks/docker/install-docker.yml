@@ -1,0 +1,30 @@
+---
+- name: Install docker
+  hosts: docker
+  roles:
+    - geerlingguy.docker
+  gather_facts: true
+  become: true
+
+# https://docs.docker.com/engine/install/ubuntu/
+# This was needing to be run to get the gpg keys to work correctly.
+# sudo install -m 0755 -d /etc/apt/keyrings
+# sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+# sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+  # tasks:
+  #   - name: Create keyrings directory
+  #     ansible.builtin.file:
+  #       path: /etc/apt/keyrings
+  #       state: directory
+  #       mode: '0755'
+
+  #   - name: Download Docker GPG key
+  #     ansible.builtin.get_url:
+  #       url: https://download.docker.com/linux/ubuntu/gpg
+  #       dest: /etc/apt/keyrings/docker.asc
+  #       mode: '0644'
+
+  # TODO
+  # Add current user to docker group
+  # sudo usermod -aG docker $USER

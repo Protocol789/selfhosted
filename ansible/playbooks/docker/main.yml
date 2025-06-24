@@ -1,0 +1,10 @@
+---
+
+- name: Install gpg keys
+  import_playbook: install-gpg.yml
+
+- name: Install docker
+  import_playbook: install-docker.yml
+
+- name: Symbolic link from cephFS to /docker
+  import_playbook: symlink-data.yml

@@ -1,7 +1,9 @@
 ---
 collections:
-  - name: vladgh.samba   # https://github.com/vladgh/ansible-collection-vladgh-samba/blob/main/README.md#install-collection
+  - name: vladgh.samba          # https://github.com/vladgh/ansible-collection-vladgh-samba/blob/main/README.md#install-collection
   - name: lucasheld.uptime_kuma # https://github.com/lucasheld/ansible-uptime-kuma
+  - name: ansible.posix         # https://docs.ansible.com/ansible/latest/collections/ansible/posix/mount_module.html
 roles:
-  - name: geerlingguy.nfs # https://galaxy.ansible.com/ui/standalone/roles/geerlingguy/nfs/install/
-  - name: artis3n.tailscale # https://galaxy.ansible.com/ui/standalone/roles/artis3n/tailscale/
+  - name: geerlingguy.nfs       # https://galaxy.ansible.com/ui/standalone/roles/geerlingguy/nfs/install/
+  - name: artis3n.tailscale     # https://galaxy.ansible.com/ui/standalone/roles/artis3n/tailscale/
+  - name: geerlingguy.docker    # https://galaxy.ansible.com/ui/standalone/roles/geerlingguy/docker/install/

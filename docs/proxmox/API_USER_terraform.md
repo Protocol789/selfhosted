@@ -27,7 +27,29 @@ terraform-user@pve!terraform-token
 7a4f5fa0-52f1-41e1-9c4e-53eac9b25d59 
 ```
 
-## Modifu privelages
+## Test the token 
+
+
+Request
+
+```bash
+# single quotes by design
+USER='terraform-user@pve!terraform-token'
+TOKEN="TOKEN GOES HERE"
+
+HEADER="Authorization: PVEAPIToken=$USER=$TOKEN"
+
+curl --location 'https://proxmox5.server:8006/api2/json/' \
+--header "$HEADER"
+```
+
+Response
+
+```json
+{"data":[{"subdir":"version"},{"subdir":"cluster"},{"subdir":"nodes"},{"subdir":"storage"},{"subdir":"access"},{"subdir":"pools"}]}
+```
+
+## Modify privelages
 
 
 ```shell

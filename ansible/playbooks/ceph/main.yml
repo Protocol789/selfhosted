@@ -1,0 +1,7 @@
+---
+
+- name: Install and setup ceph
+  import_playbook: ceph-share.yml
+
+- name: Mount the share to /mnt/cephfs
+  import_playbook: fstab.yml

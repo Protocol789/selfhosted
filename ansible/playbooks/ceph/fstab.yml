@@ -2,10 +2,8 @@
 - name: Mount CephFS
   hosts: docker
   become: true
-  vars:
-    mount: "/mnt/cephfs"
-    source: "192.168.50.34,192.168.50.23,192.168.50.22:/"
-    filepath: "/etc/ceph/ceph.client.vmuser.keyring"
+  vars_files:
+    - vars.yml
 
   tasks:
     - name: Ensure the mount point directory exists
@@ -15,13 +13,6 @@
         owner: root
         group: root
         mode: '0755'
-
-    - name: Debug variables
-      ansible.builtin.debug:
-        msg:
-          - "Mount point: {{ mount }}"
-          - "Source: {{ source }}"
-          - "name=vmuser,secretfile={{ filepath }},_netdev"
 
     - name: Mount CephFS
       ansible.posix.mount:
@@ -45,4 +36,10 @@
     #   ansible.builtin.fail:
     #     msg: "The secret file /etc/ceph/ceph.client.vmuser.keyring does not exist."
     #   when: not secret_file.stat.exists
-    
+
+    # - name: Debug variables
+    #   ansible.builtin.debug:
+    #     msg:
+    #       - "Mount point: {{ mount }}"
+    #       - "Source: {{ source }}"
+    #       - "name=vmuser,secretfile={{ filepath }},_netdev"

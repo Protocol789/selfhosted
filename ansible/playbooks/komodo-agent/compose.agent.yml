@@ -26,7 +26,7 @@ services:
       - repos:/etc/komodo/repos
       ## manage stack files in a docker volume, 
       ## or change it to an accessible host directory.
-      - stacks:/docker/komodo/stacks
+      - /mnt/cephfs/docker:/docker/komodo/stacks
       ## Optionally mount a path to store compose files
       # - /path/to/compose:/host/compose
     ports:
@@ -35,4 +35,4 @@ volumes:
   # Periphery
   ssl-certs:
   repos:
-  stacks:
+  # stacks:

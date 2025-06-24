@@ -1,23 +1,12 @@
 ---
 - name: Deploy Docker Compose application
-  hosts: development
+  hosts: docker
   become: true
   vars:
     app_name: komodo
-    app_directory: /docker/{{ app_name }} # Define the variable here
+    app_directory: /docker/{{ app_name }}
 
   tasks:
-    # - name: Gather the package facts
-    #   ansible.builtin.package_facts:
-    #     manager: auto
-
-    # - name: show apache2 version
-    #   debug: var=ansible_facts.packages.docker-ce[0].version
-
-    # - name: Check whether a package called docker-ce is installed
-    #   ansible.builtin.debug:
-    #     msg: "{{ ansible_facts.packages['docker-ce'] | length }} versions of docker-ce are installed!"
-    #   # when: "'docker-ce' in ansible_facts.packages"
 
     - name: Ensure the app directory exists
       ansible.builtin.file:

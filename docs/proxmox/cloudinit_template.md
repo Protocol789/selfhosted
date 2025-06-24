@@ -56,39 +56,45 @@ Explanation:
 5. Setting the Boot Order
 Ensure our VM knows how to boot correctly. Set the boot order to prioritize booting from the disk.
 
-qm set 9000 --boot order=scsi0
-Explanation:
+`qm set 9000 --boot order=scsi0`
 
-Sets the boot order for VM 9000 to boot from the first SCSI disk with ID 0.
+    Explanation:
+    Sets the boot order for VM 9000 to boot from the first SCSI disk with ID 0.
 
 6. Configuring CPU and Memory Resources
 Our VM needs enough resources to perform its tasks. Configure the CPU and memory allocation accordingly.
 
-qm set 9000 --cpu host --cores 2 --memory 2048
-Explanation:
+`qm set 9000 --cpu host --cores 2 --memory 2048`
 
-Sets VM 9000 to use the host CPU model, with 2 CPU cores, and allocate 2048 MB (2GB) of memory.
+    Explanation:
+    Sets VM 9000 to use the host CPU model, with 2 CPU cores, and allocate 2048 MB (2GB) of memory.
 
 7. Configuring BIOS and EFI
 To enable smooth functioning, we need to set the BIOS and EFI properties for our VM.
 
-qm set 9000 --bios ovmf --efidisk0 local-lvm:1,format=qcow2,efitype=4m,pre-enrolled-keys=1
-Explanation:
+<!-- `qm set 9000 --bios ovmf --efidisk0 local-lvm:1,format=qcow2,efitype=4m,pre-enrolled-keys=1` -->
+> Had to set ceph-pool instead of local-lvm
 
-qm set 9000 --bios ovmf: Configures VM 9000 to use the OVMF BIOS.
---efidisk0 local-lvm:1,format=qcow2,efitype=4m,pre-enrolled-keys=1: Sets the first EFI disk with ID 1 to use the local-lvm storage, with QCOW2 format, an EFI partition size of 4MB, and pre-enrolled keys for secure boot.
+`qm set 9002 --bios ovmf --efidisk0 ceph-pool:1,format=qcow2,efitype=4m,pre-enrolled-keys=1`
+
+    Explanation:
+
+    `qm set 9000 --bios ovmf`: Configures VM 9000 to use the OVMF BIOS.
+    --efidisk0 local-lvm:1,format=qcow2,efitype=4m,pre-enrolled-keys=1: Sets the first EFI disk with ID 1 to use the local-lvm storage, with QCOW2 format, an EFI partition size of 4MB, and pre-enrolled keys for secure boot.
+
 8. Setting up Cloud-Init
 Empower your VM with cloud-init capabilities by attaching the cloud-init drive.
 
-qm set 9000 --ide2 local-lvm:cloudinit
-Explanation:
+`qm set 9000 --ide2 local-lvm:cloudinit`
 
-Sets the second IDE disk with ID 2 to use the local-lvm storage, which will serve as the cloud-init drive for the VM.
+    Explanation:
+    Sets the second IDE disk with ID 2 to use the local-lvm storage, which will serve as the cloud-init drive for the VM.
 
 9. Enabling QEMU Guest Agent
 Enhance VM interaction by enabling the QEMU guest agent.
 
-qm set 9000 --agent enabled=1
+`qm set 9000 --agent enabled=1` 
+
 Explanation:
 
 Enables the QEMU guest agent for VM 9000, allowing better communication with the VM from the host.

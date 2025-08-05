@@ -54,6 +54,23 @@ echo "mok_signing_key=/root/secureboot/mok.key" >> /etc/dkms/framework.conf
 echo "mok_certificate=/root/secureboot/mok.cer" >> /etc/dkms/framework.conf
 ```
 
+# Create the directory if it doesn't exist
+```bash 
+mkdir -p /etc/dkms
+```
+
+# Create the framework.conf file with the MOK settings
+```bash 
+cat > /etc/dkms/framework.conf << EOF
+# DKMS framework configuration
+mok_signing_key=/root/secureboot/mok.key
+mok_certificate=/root/secureboot/mok.cer
+EOF
+```
+
+Verify file was created successfully
+`cat /etc/dkms/framework.conf`
+
 ## 6. Install NVIDIA Driver
 
 Now you can install the NVIDIA driver normally:

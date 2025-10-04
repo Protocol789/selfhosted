@@ -5,6 +5,7 @@ services:
     environment:
       PUID: 1000
       PGID: 1000 
+      HOMEPAGE_ALLOWED_HOSTS: homepage.zorab.im
     ports:
       - 3000:3000
     volumes:

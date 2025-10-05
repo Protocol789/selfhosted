@@ -1,0 +1,21 @@
+services:
+  paperlessai:
+    image: clusterzx/paperless-ai:${VERSION}
+    container_name: paperlessai
+    network_mode: bridge
+    volumes:
+      - paperlessai_data2:/app/data
+    ports:
+      - "3005:3000"
+    restart: unless-stopped
+    env_file: stack.env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.paperlessai.rule=Host(`paperlessai.zorab.im`)"
+      - "traefik.http.routers.paperlessai.entrypoints=websecure"
+      - "traefik.http.routers.paperlessai.tls.domains[0].main=zorab.im"
+      - "traefik.http.routers.paperlessai.tls.domains[0].sans=*.zorab.im"
+      - "traefik.http.routers.paperlessai.tls.certResolver=cloudflare"
+      - "traefik.http.services.paperlessai.loadbalancer.server.port=3005"
+volumes:
+  paperlessai_data2:

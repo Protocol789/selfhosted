@@ -1,0 +1,21 @@
+{
+    "ip_address": [
+        "192.168.15.24",
+        "192.168.15.74",
+        "100.113.241.61"
+    ],
+    "username": "pi",
+    "password": "raspberry",
+    "ssh_key_pub": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6OM3GH4Y5+4y1B229qxKEN9rIuwuPBosJp+QF8DmVt dj_pr@zorab-surface",
+    "ssh_key_passphrase": null,
+    "port": 22,
+    "os": "raspbian",
+    "os_version": "bullseye",
+    "cpu_architecture": "armv7l",
+    "tags": [
+        "raspberry_pi",
+        "raspberry_pi_4",
+        "raspberry_pi_400",
+        "raspberry_pi_3b_plus"
+    ]
+}

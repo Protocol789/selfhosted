@@ -1,7 +1,6 @@
-
 services:
   backrest:
-    image: garethgeorge/backrest:v1.6.1-scratch
+    image: garethgeorge/backrest:v1.9.2-scratch
     container_name: backrest
     hostname: backrest
     volumes:
@@ -18,18 +17,18 @@ services:
     ports:
       - 9898:9898
     labels:
-     - "traefik.enable=true"
-     - "traefik.http.routers.backrest.rule=Host(`backrest.zorab.im`)"
-     - "traefik.http.routers.backrest.entrypoints=websecure"
-     - "traefik.http.routers.backrest.tls.domains[0].main=zorab.im"
-     - "traefik.http.routers.backrest.tls.domains[0].sans=*.zorab.im"
-     - "traefik.http.routers.backrest.tls.certResolver=cloudflare"
-     #- "traefik.http.services.backrest.loadbalancer.server.port=9898"  
-     - "traefik.http.services.backrest.loadbalancer.server.url=http://dockerhost01.server:9898"
+      - "traefik.enable=true"
+      - "traefik.http.routers.backrest.rule=Host(`backrest.zorab.im`)"
+      - "traefik.http.routers.backrest.entrypoints=websecure"
+      - "traefik.http.routers.backrest.tls.domains[0].main=zorab.im"
+      - "traefik.http.routers.backrest.tls.domains[0].sans=*.zorab.im"
+      - "traefik.http.routers.backrest.tls.certResolver=cloudflare"
+      #- "traefik.http.services.backrest.loadbalancer.server.port=9898"
+      - "traefik.http.services.backrest.loadbalancer.server.url=http://dockerhost01.server:9898"
 
     networks:
-      - traefik_public      
- 
+      - traefik_public
+
 networks:
   traefik_public:
     external: true

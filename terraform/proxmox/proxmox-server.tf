@@ -15,7 +15,7 @@ resource "proxmox_vm_qemu" "cloudinit-example" {
   # cicustom   = "vendor=local:snippets/vendor.yaml" # /var/lib/vz/snippets/qemu-guest-agent.yml   /mnt/pve/cephfs/snippets/vendor.yml
   cicustom   = "vendor=/mnt/pve/cephfs/snippets/vendor.yml"
   ciupgrade  = true
-  nameserver = "1.1.1.1 8.8.8.8"
+  nameserver = "192.168.50.5 192.168.50.6"
   ipconfig0  = "ip=192.168.50.43/24,gw=192.168.50.10,ip6=dhcp"
   agent_timeout = 60  # Wait longer than the default 60 seconds
   skip_ipv6  = true

@@ -10,20 +10,22 @@ resource "proxmox_vm_qemu" "dockerhost06" {
   agent            = 1
   memory           = 2048
   boot             = "order=scsi0"
-  clone            = "ubuntu-cloud-init-template"
+  # clone            = "ubuntu-cloud-init-template"
+  clone            = "debian12-cloudinit"
   scsihw           = "virtio-scsi-single"
   automatic_reboot = true
   force_create     = true
+  tags             = "dockerhost,ci"
   
   # Timeout settings
   # clone_wait       = 30           # Wait time for clone to complete (minutes)
   # additional_wait  = 15           # Additional wait after VM is running (seconds)
   # agent_timeout    = 300          # Timeout for QEMU agent (seconds)
   
-  cicustom         = "vendor=/mnt/pve/cephfs/snippets/vendor.yml"
-  ciupgrade        = "true"
-  nameserver       = "1.1.1.1 8.8.8.8"
-  ipconfig0        = "ip=192.168.50.48/24,gw=192.168.50.10,ip6=dhcp"
+  cicustom         = "vendor=cephfs:snippets/vendor.yml"
+  ciupgrade        = "false"
+  # nameserver       = "1.1.1.1 8.8.8.8"
+  ipconfig0        = "ip=192.168.50.48/24,gw=192.168.50.10"
   ciuser           = "ciuser"
   cipassword       = "Enter123!"
   sshkeys          = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6OM3GH4Y5+4y1B229qxKEN9rIuwuPBosJp+QF8DmVt dj_pr@zorab-surface"

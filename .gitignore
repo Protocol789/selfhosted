@@ -36,3 +36,4 @@ override.tf.json
 # ignore sensitive environment variables
 *.env
 terraform/proxmox/terraform-plugin-proxmox.log
+proxmox-terraform/terraform-plugin-proxmox.log

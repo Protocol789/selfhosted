@@ -6,6 +6,15 @@
   vars:
     project_dir: "/home/daniel/selfhosted/terraform/cloudflare-tf" # folder that contains main.tf, ...
 
+    cloudflare_account_id: "cf_account_id_goes_here"
+    cloudflare_token: "cf_token_goes_here"
+    cloudflare_tunnelid: "cf_tunnelid_goes_here"
+
+    # new_entry:
+    #   hostname: "mealie.zorab.im"
+    #   originRequest: {}
+    #   service: "https://mealie.zorab.im"
+
   tasks:
     - name: Run terraform
       community.general.terraform:
@@ -15,5 +24,39 @@
           cloudflare_app_name: "{{ app_name }}"
       register: output
 
-    - debug:
-        var: output
+    - name: Print out the debug from terraform
+      ansible.builtin.debug:
+        msg: output
+
+    # - name: Get cloudflare tunnel configuration
+    #   ansible.builtin.uri:
+    #     url: https://api.cloudflare.com/client/v4/accounts/{{ cloudflare_account_id }}/cfd_tunnel/{{ cloudflare_tunnelid }}/configurations
+    #     method: GET
+    #     return_content: true
+    #     headers:
+    #       Content-Type: application/json
+    #       Authorization: "Bearer {{ cloudflare_token }}"
+    #   register: _tunnels
+
+    # - name: Build the outer body structure
+    #   ansible.builtin.set_fact:
+    #     outer_body:
+    #       config:
+    #         ingress: "{{ _tunnels.json.result.config.ingress + [new_entry] }}"
+
+    # - name: Debug the updated msg array
+    #   ansible.builtin.debug:
+    #     var: outer_body
+
+    # - name: Upload cloudflare tunnel configuration
+    #   ansible.builtin.uri:
+    #     url: https://api.cloudflare.com/client/v4/accounts/{{ cloudflare_account_id }}/cfd_tunnel/{{ cloudflare_tunnelid }}/configurations
+    #     method: PUT
+    #     body_format: json
+    #     status_code: [200, 202]
+    #     return_content: true
+    #     headers:
+    #       Content-Type: application/json
+    #       Authorization: "Bearer {{ cloudflare_token }}"
+    #     body: "{{ outer_body }}"
+    #   register: _tunnels_post

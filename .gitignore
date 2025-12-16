@@ -37,3 +37,4 @@ override.tf.json
 *.env
 terraform/proxmox/terraform-plugin-proxmox.log
 proxmox-terraform/terraform-plugin-proxmox.log
+terraform/proxmox/terraform-plugin-proxmox.log

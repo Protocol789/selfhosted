@@ -1,0 +1,35 @@
+#cloud-config
+# network:
+#   version: 2
+#   ethernets:
+#     enp1s0:  # Adjust interface name (check with 'ip link')
+#       dhcp4: true
+#       dhcp6: false
+      # addresses: [192.168.1.10/24]  # Your static IP
+      # gateway4: 192.168.1.1
+      # nameservers:
+      #   addresses: [8.8.8.8, 1.1.1.1]
+timezone: Etc/UTC
+# users:
+#   - default
+#   - name: ciuser
+#     gecos: CI User
+#     shell: /bin/bash
+#     groups: sudo, adm
+#     sudo: ['ALL=(ALL) NOPASSWD:ALL']
+#     password: "$6$kWBql4pftWQz2zju$Z2yUXPT2VnCRFiOEAmDrXxtz45wYtacpzKhRNn7lDvw0oCApNU3fmMIixp.Xm/pLbpWMaPYSWf372zfJbPsxV1"
+#     ssh_authorized_keys:
+#       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzYFhKI//Bn92MEEFUmRHPIPOrpa0fIHJPN2WQj1pCj ansible
+# chpasswd:
+#   list: |
+#     ciuser:password123
+#   expire: False
+package_update: true
+packages:
+  - qemu-guest-agent
+  - net-tools
+  - curl
+runcmd:
+  - systemctl enable qemu-guest-agent
+  - systemctl start qemu-guest-agent
+  - echo "done" > /tmp/cloud-config.done

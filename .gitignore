@@ -39,3 +39,4 @@ override.tf.json
 # Logs
 *.log 
 **/*.log
+terraform/proxmox/terraform-plugin-proxmox.log

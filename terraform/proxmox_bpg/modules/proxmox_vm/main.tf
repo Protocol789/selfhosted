@@ -1,37 +1,78 @@
-resource "proxmox_virtual_environment_file" "meta_data_cloud_config" {
+# resource "proxmox_virtual_environment_file" "meta_data_cloud_config" {
+#   content_type = "snippets"
+#   datastore_id = var.file_datastore
+#   node_name    = var.node_name
+
+#   source_raw {
+#     data = <<-EOF
+#     #cloud-config
+#     local-hostname: ${var.name}
+#     EOF
+
+#     file_name = "${var.name}-meta-data-cloud-config.yaml"
+#   }
+# }
+
+# resource "proxmox_virtual_environment_file" "user_data_cloud_config" {
+#   content_type = "snippets"
+#   datastore_id = var.file_datastore
+#   node_name    = var.node_name
+
+#   source_raw {
+#     data = <<-EOF
+#     #cloud-config
+#     users:
+#       - name: ciuser
+#         ssh_authorized_keys:
+#           - ${var.ssh_key}
+#         lock_passwd: false
+#         passwd: ${var.password}
+#     EOF
+
+#     file_name = "${var.name}-user-data-cloud-config.yaml"
+#   }
+# }
+
+# Network 
+resource "proxmox_virtual_environment_file" "local_network_cloud_data_config" {
   content_type = "snippets"
-  datastore_id = var.file_datastore
-  node_name    = var.node_name
+  datastore_id = "cephfs" # Must have 'snippets' enabled in PVE
+  node_name    = "proxmox4"
+  overwrite     = true
 
-  source_raw {
-    data = <<-EOF
-    #cloud-config
-    local-hostname: ${var.name}
-    EOF
-
-    file_name = "${var.name}-meta-data-cloud-config.yaml"
+  source_file {
+    # Path to the file on your Terraform server
+    path = "${path.module}/network-data-cloud-config.yaml"
   }
 }
 
-resource "proxmox_virtual_environment_file" "user_data_cloud_config" {
+# 1. User data
+resource "proxmox_virtual_environment_file" "local_user_cloud_data_config" {
   content_type = "snippets"
-  datastore_id = var.file_datastore
-  node_name    = var.node_name
+  datastore_id = "cephfs" # Must have 'snippets' enabled in PVE
+  node_name    = "proxmox4"
+  overwrite     = true
 
-  source_raw {
-    data = <<-EOF
-    #cloud-config
-    users:
-      - name: ciuser
-        ssh_authorized_keys:
-          - ${var.ssh_key}
-        lock_passwd: false
-        passwd: ${var.password}
-    EOF
-
-    file_name = "${var.name}-user-data-cloud-config.yaml"
+  source_file {
+    # Path to the file on your Terraform server
+    path = "${path.module}/user-data-cloud-config.yaml"
   }
 }
+
+
+# 1. Define the local file upload
+resource "proxmox_virtual_environment_file" "local_meta_cloud_data_config" {
+  content_type = "snippets"
+  datastore_id = "cephfs" # Must have 'snippets' enabled in PVE
+  node_name    = "proxmox4"
+  overwrite     = true
+
+  source_file {
+    # Path to the file on your Terraform server
+    path = "${path.module}/meta-data-cloud-config.yaml"
+  }
+}
+
 
 resource "proxmox_virtual_environment_vm" "vm" {
   name      = var.name
@@ -50,23 +91,25 @@ resource "proxmox_virtual_environment_vm" "vm" {
   }
 
   initialization {
-    user_account {
-      username = "ciuser"
-      password = var.password
-      keys     = [var.ssh_key]
-    }
+    # user_account {
+    #   username = "ciuser"
+    #   password = var.password
+    #   keys     = [var.ssh_key]
+    # }
 
-    ip_config {
-      ipv4 {
-        address = var.ipv4
-      }
-      ipv6 {
-        address = "auto"
-      }
-    }
-
-    vendor_data_file_id = proxmox_virtual_environment_file.user_data_cloud_config.id
-    meta_data_file_id   = proxmox_virtual_environment_file.meta_data_cloud_config.id
+    # ip_config {
+    #   ipv4 {
+    #     address = var.ipv4
+    #   }
+    #   ipv6 {
+    #     address = "auto"
+    #   }
+    # }
+    network_data_file_id = proxmox_virtual_environment_file.local_network_cloud_data_config.id
+    user_data_file_id = proxmox_virtual_environment_file.local_user_cloud_data_config.id
+    # vendor_data_file_id = proxmox_virtual_environment_file.local_vendor_data.id
+    meta_data_file_id   = proxmox_virtual_environment_file.local_meta_cloud_data_config.id
+    # meta_data_file_id   = proxmox_virtual_environment_file.local_meta_data_cloud_config.id
   }
 
   serial_device {}

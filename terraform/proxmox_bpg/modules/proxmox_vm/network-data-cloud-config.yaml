@@ -1,0 +1,12 @@
+#network-config
+network:
+  version: 2
+  ethernets:
+    ens18: # Adjust interface name (check with 'ip link')
+    # enp6s18: # proxmox 5 needed this
+      dhcp4: false
+      dhcp6: false
+      addresses: [192.168.50.55/24] # Your static IP
+      gateway4: 192.168.50.10
+      nameservers:
+        addresses: [192.168.50.6, 192.168.50.7, 192.168.50.8]

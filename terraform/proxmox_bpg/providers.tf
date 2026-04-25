@@ -16,7 +16,7 @@ provider "proxmox" {
   # password      = var.proxmox_api_token_secret
   insecure = var.proxmox_tls_insecure
   ssh {
-    agent       = false
+    agent       = true
     username    = "terraform"
     private_key = file("~/.ssh/id_ed25519_terraform")
     # Override for proxmox3 so it routes through correct interface

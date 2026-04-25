@@ -20,43 +20,55 @@ data "terraform_remote_state" "images" {
   }
 }
 
-module "debian_a" {
-  source         = "./modules/proxmox_vm"
-  name           = "test-debian-a"
-  node_name      = "proxmox2"
-  ssh_key        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzYFhKI//Bn92MEEFUmRHPIPOrpa0fIHJPN2WQj1pCj ansible"
-  password       = "password123"
-  ipv4           = "dhcp"
-  bridge         = "vmbr1"
-  cloud_image_id = data.terraform_remote_state.images.outputs.debian_image_id
-}
+# module "debian_a" {
+#   source         = "./modules/proxmox_vm"
+#   name           = "test-debian-a"
+#   node_name      = "proxmox2"
+#   ssh_key        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzYFhKI//Bn92MEEFUmRHPIPOrpa0fIHJPN2WQj1pCj ansible"
+#   password       = "password123"
+#   ipv4           = "dhcp"
+#   bridge         = "vmbr1"
+#   cloud_image_id = data.terraform_remote_state.images.outputs.debian_image_id
+# }
 
-module "debian_b" {
-  source         = "./modules/proxmox_vm"
-  name           = "test-debian-b"
-  node_name      = "proxmox3"
-  ssh_key        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzYFhKI//Bn92MEEFUmRHPIPOrpa0fIHJPN2WQj1pCj ansible"
-  password       = "password123"
-  ipv4           = "dhcp"
-  bridge         = "vmbr0"
-  cloud_image_id = data.terraform_remote_state.images.outputs.debian_image_id
-}
+# module "debian_b" {
+#   source         = "./modules/proxmox_vm"
+#   name           = "test-debian-b"
+#   node_name      = "proxmox3"
+#   ssh_key        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzYFhKI//Bn92MEEFUmRHPIPOrpa0fIHJPN2WQj1pCj ansible"
+#   password       = "password123"
+#   ipv4           = "dhcp"
+#   bridge         = "vmbr0"
+#   cloud_image_id = data.terraform_remote_state.images.outputs.debian_image_id
+# }
 
-module "debian_c" {
-  source         = "./modules/proxmox_vm"
-  name           = "test-debian-c"
-  node_name      = "proxmox4"
-  ssh_key        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzYFhKI//Bn92MEEFUmRHPIPOrpa0fIHJPN2WQj1pCj ansible"
-  password       = "password123"
-  ipv4           = "dhcp"
-  bridge         = "vmbr0"
-  cloud_image_id = data.terraform_remote_state.images.outputs.debian_image_id
-}
+# module "debian_c" {
+#   source         = "./modules/proxmox_vm"
+#   name           = "DLH01"
+#   node_name      = "proxmox4"
+#   ssh_key        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzYFhKI//Bn92MEEFUmRHPIPOrpa0fIHJPN2WQj1pCj ansible"
+#   password       = "password123"
+#   # ipv4           = "dhcp"
+#   bridge         = "vmbr0"
+#   cloud_image_id = data.terraform_remote_state.images.outputs.debian_image_id
+#   disk_datastore   = "ceph-pool"
+# }
 
 
-module "debian_d" {
+#module "debian_d" {
+#  source         = "./modules/proxmox_vm"
+#  name           = "dockerhost08"
+#  node_name      = "proxmox5"
+#  ssh_key        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzYFhKI//Bn92MEEFUmRHPIPOrpa0fIHJPN2WQj1pCj ansible"
+#  password       = "password123"
+#  ipv4           = "dhcp"
+#  bridge         = "vmbr0"
+#  cloud_image_id = data.terraform_remote_state.images.outputs.debian_image_id
+#}
+
+module "dockerhost08" {
   source         = "./modules/proxmox_vm"
-  name           = "test-debian-d"
+  name           = "dockerhost08"
   node_name      = "proxmox5"
   ssh_key        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzYFhKI//Bn92MEEFUmRHPIPOrpa0fIHJPN2WQj1pCj ansible"
   password       = "password123"
@@ -66,8 +78,7 @@ module "debian_d" {
 }
 
 
-
-# If CEPH isn't avlaiable, it'll need to be downloaded to each individual node
+# If CEPH isn't available, it'll need to be downloaded to each individual node
 
 # resource "proxmox_virtual_environment_download_file" "debian_cloud_image_proxmox3" {
 #   content_type = "import"

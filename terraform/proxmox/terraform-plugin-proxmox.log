@@ -18188,3 +18188,319 @@ Server: pve-api-daemon/3.0
 [90mTue, 25 Feb 2025 07:52:27 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1586[0m[36m >[0m Network block received 'map[bridge:vmbr0 id:0 macaddr:6A:2C:93:F8:A5:3D model:virtio]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m300
 [90mTue, 25 Feb 2025 07:52:27 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1617[0m[36m >[0m VM Net Config 'map[0:map[bridge:vmbr0 id:0 macaddr:6A:2C:93:F8:A5:3D model:virtio tag:-1]]' from '[map[bridge:vmbr0 macaddr:6A:2C:93:F8:A5:3D model:virtio tag:-1]]' set as '[map[bridge:vmbr0 firewall:false link_down:false macaddr:6A:2C:93:F8:A5:3D model:virtio mtu:0 queues:0 rate:0 tag:-1]]' type of 'string' [36mloggerName=[0mresource_vm_read [36mvmid=[0m300
 [90mTue, 25 Feb 2025 07:52:27 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1619[0m[36m >[0m Finished VM read resulting in data: '' [36mloggerName=[0mresource_vm_read [36mvmid=[0m300
+[90mMon, 23 Mar 2026 15:36:13 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/util.go:158[0m[36m >[0m [1mEnabling the capture of log-library logs as ithe _capturelog flag was detected[0m
+[90mMon, 23 Mar 2026 15:36:13 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/util.go:191[0m[36m >[0m [1mLogging Started. Root Logger Set to level debug[0m
+[90mMon, 23 Mar 2026 15:36:13 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1432[0m[36m >[0m [1mReading configuration for vmid[0m [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+2026/03/23 15:36:13 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:36:13 <<<<<<<<<< RESULT:
+HTTP/2.0 200 OK
+Connection: close
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:36:13 GMT
+Expires: Mon, 23 Mar 2026 15:36:13 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"id":"qemu/100","maxcpu":1,"maxdisk":25769803776,"node":"proxmox5","status":"running","uptime":3700196,"mem":3767107584,"maxmem":4294967296,"vmid":100,"cpu":0.0517560133291841,"name":"ollama","tags":"terraform","type":"qemu","netout":463428163,"netin":82572970602,"disk":0,"diskwrite":108816640000,"template":0,"diskread":18080708580},{"vmid":101,"maxmem":1073741824,"cpu":0.0936540008431981,"name":"pihole1","node":"proxmox3","maxdisk":8350298112,"status":"running","mem":342458368,"uptime":3875271,"id":"lxc/101","maxcpu":2,"template":0,"diskwrite":207169769472,"diskread":977671069696,"netin":79671555503,"disk":5478952960,"tags":"ci;dns;prod;proxmox-helper-scripts;tailscale","type":"lxc","netout":5404708859},{"disk":4862726144,"netin":79434130134,"type":"lxc","tags":"ci","netout":8837561839,"diskwrite":6475844071424,"template":0,"diskread":24713285632,"id":"lxc/103","maxcpu":2,"maxmem":2147483648,"vmid":103,"name":"pulse","cpu":0.00808660882707356,"maxdisk":8369172480,"status":"running","node":"proxmox2","mem":546643968,"uptime":1238518},{"maxcpu":1,"id":"lxc/104","node":"proxmox2","maxdisk":4143677440,"status":"running","mem":52174848,"uptime":3876703,"maxmem":536870912,"vmid":104,"cpu":0.00128528882019712,"name":"tailscale","tags":"community-script;debian;os;tailscale","type":"lxc","netout":220895492,"netin":75760043011,"disk":917233664,"template":0,"diskwrite":489058304,"diskread":174977024},{"id":"qemu/105","maxcpu":2,"uptime":3876284,"mem":5513191424,"maxdisk":42949672960,"node":"proxmox3","status":"running","cpu":0.0937312532171477,"name":"dockerhost01","vmid":105,"maxmem":6442450944,"netout":153644498885,"type":"qemu","tags":"docker;monitoring_dh;prod","disk":0,"netin":195054359670,"diskread":3693633942,"template":0,"diskwrite":106674541568},{"maxcpu":4,"id":"qemu/106","status":"running","maxdisk":34359738368,"node":"proxmox5","mem":7325814784,"uptime":3875576,"maxmem":8589934592,"vmid":106,"name":"dockerhost02","cpu":0.0461409741472443,"tags":"beszel_dh;docker;monitoring_dh;prod","type":"qemu","netout":24974644267,"disk":0,"netin":135671969488,"template":0,"diskwrite":307021171712,"diskread":4673019392},{"maxmem":6442450944,"vmid":107,"cpu":0.0190423067909262,"name":"haos10.1","maxdisk":34359738368,"status":"running","node":"proxmox5","uptime":3875571,"mem":5188972544,"maxcpu":2,"id":"qemu/107","template":0,"diskwrite":203352044032,"diskread":1585738240,"netin":88136364236,"disk":0,"tags":"home-assistant;prod","type":"qemu","netout":8749375416},{"id":"lxc/108","maxcpu":2,"cpu":0.00208859433282032,"name":"netvisor","maxmem":3221225472,"vmid":108,"mem":62050304,"uptime":3876699,"status":"running","maxdisk":6249086976,"node":"proxmox2","disk":4357431296,"netin":75369295644,"netout":3378702,"type":"lxc","tags":"analytics;community-script","diskread":680280064,"template":0,"diskwrite":74848620544},{"netout":311383068,"type":"lxc","tags":"ci;community-script;pihole","netin":75876928104,"disk":1997447168,"diskread":916013056,"diskwrite":41069948928,"template":0,"maxcpu":2,"id":"lxc/109","uptime":3875565,"mem":108515328,"maxdisk":4143677440,"status":"running","node":"proxmox5","name":"pihole3","cpu":0.00237378554990623,"maxmem":536870912,"vmid":109},{"diskread":0,"diskwrite":0,"template":0,"netout":0,"tags":"community-script;notification","type":"lxc","disk":0,"netin":0,"mem":0,"uptime":0,"node":"proxmox2","maxdisk":2147483648,"status":"stopped","cpu":0,"name":"gotify","maxmem":536870912,"vmid":111,"id":"lxc/111","maxcpu":1},{"maxmem":536870912,"vmid":113,"name":"pihole4","cpu":0.00203504063197878,"node":"proxmox2","maxdisk":2040373248,"status":"running","uptime":3876693,"mem":134684672,"id":"lxc/113","maxcpu":1,"diskwrite":42598588416,"template":0,"diskread":1535979520,"disk":1259925504,"netin":75733277160,"tags":"adblock;ci;community-script","type":"lxc","netout":342389512},{"maxcpu":2,"id":"qemu/114","maxdisk":89120571392,"node":"proxmox2","status":"stopped","uptime":0,"mem":0,"vmid":114,"maxmem":4294967296,"cpu":0,"name":"bigip-ve-17","type":"qemu","netout":0,"netin":0,"disk":0,"diskwrite":0,"template":0,"diskread":0},{"maxdisk":17179869184,"node":"proxmox3","status":"running","mem":7822618624,"uptime":2058397,"maxmem":8589934592,"vmid":201,"cpu":0.0153815389894806,"name":"ansible","maxcpu":4,"id":"qemu/201","template":0,"diskwrite":31382414336,"diskread":3549753732,"tags":"ansible;ci;prod;tools","type":"qemu","netout":848936259,"netin":65058858922,"disk":0},{"maxcpu":4,"id":"qemu/300","cpu":0.0411566212297837,"name":"frontend","maxmem":8589934592,"vmid":300,"uptime":3875774,"mem":8041459712,"maxdisk":137438953472,"status":"running","node":"proxmox4","disk":0,"netin":270919744475,"netout":132181839579,"tags":"docker;frontend;monitoring_dh","type":"qemu","diskread":81503505486,"template":0,"diskwrite":475458224128},{"maxdisk":137438953472,"node":"proxmox3","status":"running","uptime":3876273,"mem":7951433728,"vmid":301,"maxmem":8589934592,"cpu":0.0389345205671229,"name":"backend","id":"qemu/301","maxcpu":4,"diskwrite":169689928704,"template":0,"diskread":9551610526,"tags":"backend;ci;docker;monitoring_dh","type":"qemu","netout":31300283595,"disk":0,"netin":94459902901},{"diskread":9611513602,"template":0,"diskwrite":40070665216,"netin":76003773752,"disk":0,"netout":6988951865,"type":"qemu","tags":"ci;docker;monitoring_dh","cpu":0.0102535498104987,"name":"dockerhost04","vmid":401,"maxmem":2147483648,"mem":1761296384,"uptime":3258768,"status":"running","maxdisk":12348030976,"node":"proxmox5","id":"qemu/401","maxcpu":2},{"maxcpu":2,"id":"qemu/403","mem":7206514688,"uptime":3875769,"maxdisk":17179869184,"node":"proxmox4","status":"running","name":"dockerhost05","cpu":0.0258142121322904,"maxmem":8589934592,"vmid":403,"netout":8490382843,"type":"qemu","tags":"docker;monitoring_dh","disk":0,"netin":81959544188,"diskread":2339256488,"template":0,"diskwrite":137611224064},{"maxmem":4294967296,"vmid":404,"name":"dockerhost07","cpu":0.0155859394006282,"maxdisk":17179869184,"status":"running","node":"proxmox4","uptime":3875765,"mem":1657940816,"id":"qemu/404","maxcpu":2,"template":0,"diskwrite":38205010944,"diskread":1968027890,"netin":77836753304,"disk":0,"tags":"ci;docker;monitoring_dh","type":"qemu","netout":2406775228},{"uptime":3872227,"mem":2691874088,"maxdisk":25769803776,"node":"proxmox5","status":"running","name":"dockerhost06","cpu":0.0332019708149483,"maxmem":4294967296,"vmid":411,"maxcpu":2,"id":"qemu/411","diskread":10033619554,"diskwrite":82889262080,"template":0,"netout":10873351815,"type":"qemu","tags":"ci;dockerhost;monitoring_dh","disk":0,"netin":80002001580},{"diskwrite":0,"template":0,"diskread":0,"disk":0,"netin":0,"type":"qemu","netout":0,"maxmem":2147483648,"vmid":700,"name":"pbc","cpu":0,"status":"stopped","maxdisk":17179869184,"node":"proxmox3","uptime":0,"mem":0,"maxcpu":2,"id":"qemu/700"},{"diskread":0,"template":1,"diskwrite":0,"netin":0,"disk":0,"netout":0,"type":"qemu","name":"ubuntu-cloud-init-template","cpu":0,"maxmem":2147483648,"vmid":9000,"mem":0,"uptime":0,"maxdisk":3758096384,"node":"proxmox5","status":"stopped","maxcpu":2,"id":"qemu/9000"},{"netin":0,"disk":0,"netout":0,"type":"qemu","diskread":0,"diskwrite":0,"template":1,"maxcpu":1,"id":"qemu/9005","cpu":0,"name":"debian12-cloudinit","maxmem":536870912,"vmid":9005,"uptime":0,"mem":0,"maxdisk":0,"node":"proxmox5","status":"stopped"}]}
+2026/03/23 15:36:13 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/proxmox4/qemu/404/config HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:36:13 <<<<<<<<<< RESULT:
+HTTP/2.0 200 OK
+Connection: close
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:36:13 GMT
+Expires: Mon, 23 Mar 2026 15:36:13 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"agent":"1","balloon":0,"efidisk0":"ceph-pool:vm-404-disk-0,efitype=4m,pre-enrolled-keys=1,size=1M","nameserver":"192.168.50.5 192.168.50.6","sockets":1,"name":"dockerhost07","cpu":"host","scsi0":"local-lvm:vm-404-disk-0,replicate=0,size=16G","ide1":"local-lvm:vm-404-cloudinit,media=cdrom","digest":"2fd6af56254605d3e2bd207395ad78b71d4b80fc","bios":"seabios","boot":"order=scsi0","cores":2,"protection":0,"onboot":1,"hotplug":"network,disk,usb","ciuser":"ciuser","ipconfig0":"ip=192.168.50.45/24,gw=192.168.50.10,ip6=dhcp","tablet":1,"memory":"4096","cicustom":" ","serial0":"socket","smbios1":"uuid=2a0989b3-e5ee-46dc-a73f-5379cfc30e47","kvm":1,"ciupgrade":1,"numa":0,"meta":"creation-qemu=9.2.0,ctime=1749504457","machine":"q35","vmgenid":"333785d2-fbc7-4c9a-90c7-8543900842d0","scsihw":"virtio-scsi-single","cipassword":"**********","sshkeys":"ssh-ed25519%20AAAAC3NzaC1lZDI1NTE5AAAAIM6OM3GH4Y5%2B4y1B229qxKEN9rIuwuPBosJp%2BQF8DmVt%20dj_pr%40zorab-surface%0A","tags":"ci;docker;monitoring_dh","net0":"virtio=6E:6D:D8:80:AD:F2,bridge=vmbr0"}}
+2026/03/23 15:36:13 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:36:13 <<<<<<<<<< RESULT:
+HTTP/2.0 200 OK
+Connection: close
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:36:13 GMT
+Expires: Mon, 23 Mar 2026 15:36:13 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"maxmem":4294967296,"vmid":100,"name":"ollama","cpu":0.0517560133291841,"node":"proxmox5","maxdisk":25769803776,"status":"running","mem":3767107584,"uptime":3700196,"maxcpu":1,"id":"qemu/100","template":0,"diskwrite":108816640000,"diskread":18080708580,"disk":0,"netin":82572970602,"type":"qemu","tags":"terraform","netout":463428163},{"diskread":977671069696,"diskwrite":207169769472,"template":0,"netout":5404708859,"tags":"ci;dns;prod;proxmox-helper-scripts;tailscale","type":"lxc","netin":79671555503,"disk":5478952960,"mem":342458368,"uptime":3875271,"maxdisk":8350298112,"node":"proxmox3","status":"running","cpu":0.0936540008431981,"name":"pihole1","maxmem":1073741824,"vmid":101,"maxcpu":2,"id":"lxc/101"},{"template":0,"diskwrite":6475844071424,"diskread":24713285632,"disk":4862726144,"netin":79434130134,"type":"lxc","tags":"ci","netout":8837561839,"maxmem":2147483648,"vmid":103,"cpu":0.00808660882707356,"name":"pulse","maxdisk":8369172480,"node":"proxmox2","status":"running","uptime":1238518,"mem":546643968,"id":"lxc/103","maxcpu":2},{"maxcpu":1,"id":"lxc/104","node":"proxmox2","maxdisk":4143677440,"status":"running","mem":52174848,"uptime":3876703,"maxmem":536870912,"vmid":104,"cpu":0.00128528882019712,"name":"tailscale","tags":"community-script;debian;os;tailscale","type":"lxc","netout":220895492,"netin":75760043011,"disk":917233664,"template":0,"diskwrite":489058304,"diskread":174977024},{"netin":195054359670,"disk":0,"tags":"docker;monitoring_dh;prod","type":"qemu","netout":153644498885,"diskwrite":106674541568,"template":0,"diskread":3693633942,"id":"qemu/105","maxcpu":2,"vmid":105,"maxmem":6442450944,"name":"dockerhost01","cpu":0.0937312532171477,"status":"running","maxdisk":42949672960,"node":"proxmox3","uptime":3876284,"mem":5513191424},{"uptime":3875576,"mem":7325814784,"maxdisk":34359738368,"node":"proxmox5","status":"running","name":"dockerhost02","cpu":0.0461409741472443,"vmid":106,"maxmem":8589934592,"maxcpu":4,"id":"qemu/106","diskread":4673019392,"template":0,"diskwrite":307021171712,"netout":24974644267,"tags":"beszel_dh;docker;monitoring_dh;prod","type":"qemu","disk":0,"netin":135671969488},{"id":"qemu/107","maxcpu":2,"cpu":0.0190423067909262,"name":"haos10.1","maxmem":6442450944,"vmid":107,"uptime":3875571,"mem":5188972544,"node":"proxmox5","maxdisk":34359738368,"status":"running","netin":88136364236,"disk":0,"netout":8749375416,"type":"qemu","tags":"home-assistant;prod","diskread":1585738240,"template":0,"diskwrite":203352044032},{"template":0,"diskwrite":74848620544,"diskread":680280064,"netin":75369295644,"disk":4357431296,"tags":"analytics;community-script","type":"lxc","netout":3378702,"maxmem":3221225472,"vmid":108,"name":"netvisor","cpu":0.00208859433282032,"maxdisk":6249086976,"status":"running","node":"proxmox2","mem":62050304,"uptime":3876699,"id":"lxc/108","maxcpu":2},{"id":"lxc/109","maxcpu":2,"uptime":3875565,"mem":108515328,"node":"proxmox5","maxdisk":4143677440,"status":"running","name":"pihole3","cpu":0.00237378554990623,"maxmem":536870912,"vmid":109,"netout":311383068,"type":"lxc","tags":"ci;community-script;pihole","disk":1997447168,"netin":75876928104,"diskread":916013056,"template":0,"diskwrite":41069948928},{"id":"lxc/111","maxcpu":1,"uptime":0,"mem":0,"node":"proxmox2","maxdisk":2147483648,"status":"stopped","cpu":0,"name":"gotify","maxmem":536870912,"vmid":111,"netout":0,"type":"lxc","tags":"community-script;notification","netin":0,"disk":0,"diskread":0,"diskwrite":0,"template":0},{"netin":75733277160,"disk":1259925504,"netout":342389512,"type":"lxc","tags":"adblock;ci;community-script","diskread":1535979520,"diskwrite":42598588416,"template":0,"maxcpu":1,"id":"lxc/113","name":"pihole4","cpu":0.00203504063197878,"maxmem":536870912,"vmid":113,"uptime":3876693,"mem":134684672,"status":"running","maxdisk":2040373248,"node":"proxmox2"},{"type":"qemu","netout":0,"netin":0,"disk":0,"template":0,"diskwrite":0,"diskread":0,"maxcpu":2,"id":"qemu/114","maxdisk":89120571392,"status":"stopped","node":"proxmox2","mem":0,"uptime":0,"maxmem":4294967296,"vmid":114,"name":"bigip-ve-17","cpu":0},{"netin":65058858922,"disk":0,"tags":"ansible;ci;prod;tools","type":"qemu","netout":848936259,"template":0,"diskwrite":31382414336,"diskread":3549753732,"maxcpu":4,"id":"qemu/201","vmid":201,"maxmem":8589934592,"name":"ansible","cpu":0.0153815389894806,"maxdisk":17179869184,"node":"proxmox3","status":"running","mem":7822618624,"uptime":2058397},{"status":"running","maxdisk":137438953472,"node":"proxmox4","mem":8041459712,"uptime":3875774,"maxmem":8589934592,"vmid":300,"name":"frontend","cpu":0.0411566212297837,"maxcpu":4,"id":"qemu/300","template":0,"diskwrite":475458224128,"diskread":81503505486,"type":"qemu","tags":"docker;frontend;monitoring_dh","netout":132181839579,"disk":0,"netin":270919744475},{"status":"running","maxdisk":137438953472,"node":"proxmox3","uptime":3876273,"mem":7951433728,"maxmem":8589934592,"vmid":301,"name":"backend","cpu":0.0389345205671229,"id":"qemu/301","maxcpu":4,"template":0,"diskwrite":169689928704,"diskread":9551610526,"type":"qemu","tags":"backend;ci;docker;monitoring_dh","netout":31300283595,"disk":0,"netin":94459902901},{"maxcpu":2,"id":"qemu/401","uptime":3258768,"mem":1761296384,"status":"running","maxdisk":12348030976,"node":"proxmox5","cpu":0.0102535498104987,"name":"dockerhost04","maxmem":2147483648,"vmid":401,"netout":6988951865,"type":"qemu","tags":"ci;docker;monitoring_dh","netin":76003773752,"disk":0,"diskread":9611513602,"template":0,"diskwrite":40070665216},{"disk":0,"netin":81959544188,"tags":"docker;monitoring_dh","type":"qemu","netout":8490382843,"diskwrite":137611224064,"template":0,"diskread":2339256488,"maxcpu":2,"id":"qemu/403","vmid":403,"maxmem":8589934592,"cpu":0.0258142121322904,"name":"dockerhost05","node":"proxmox4","maxdisk":17179869184,"status":"running","uptime":3875769,"mem":7206514688},{"tags":"ci;docker;monitoring_dh","type":"qemu","netout":2406775228,"netin":77836753304,"disk":0,"template":0,"diskwrite":38205010944,"diskread":1968027890,"maxcpu":2,"id":"qemu/404","maxdisk":17179869184,"node":"proxmox4","status":"running","uptime":3875765,"mem":1657940816,"vmid":404,"maxmem":4294967296,"name":"dockerhost07","cpu":0.0155859394006282},{"mem":2691874088,"uptime":3872227,"node":"proxmox5","maxdisk":25769803776,"status":"running","cpu":0.0332019708149483,"name":"dockerhost06","maxmem":4294967296,"vmid":411,"id":"qemu/411","maxcpu":2,"diskread":10033619554,"template":0,"diskwrite":82889262080,"netout":10873351815,"type":"qemu","tags":"ci;dockerhost;monitoring_dh","disk":0,"netin":80002001580},{"id":"qemu/700","maxcpu":2,"name":"pbc","cpu":0,"vmid":700,"maxmem":2147483648,"uptime":0,"mem":0,"maxdisk":17179869184,"status":"stopped","node":"proxmox3","netin":0,"disk":0,"netout":0,"type":"qemu","diskread":0,"diskwrite":0,"template":0},{"template":1,"diskwrite":0,"diskread":0,"netin":0,"disk":0,"type":"qemu","netout":0,"vmid":9000,"maxmem":2147483648,"name":"ubuntu-cloud-init-template","cpu":0,"status":"stopped","maxdisk":3758096384,"node":"proxmox5","uptime":0,"mem":0,"maxcpu":2,"id":"qemu/9000"},{"template":1,"diskwrite":0,"diskread":0,"type":"qemu","netout":0,"disk":0,"netin":0,"status":"stopped","maxdisk":0,"node":"proxmox5","mem":0,"uptime":0,"vmid":9005,"maxmem":536870912,"cpu":0,"name":"debian12-cloudinit","maxcpu":1,"id":"qemu/9005"}]}
+2026/03/23 15:36:13 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/ha/resources/404 HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:36:13 <<<<<<<<<< RESULT:
+HTTP/2.0 500 Internal Server Error
+Content-Length: 53
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:36:13 GMT
+Expires: Mon, 23 Mar 2026 15:36:13 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"message":"no such resource 'vm:404'\n","data":null}
+2026/03/23 15:36:14 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/ha/resources/404 HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:36:14 <<<<<<<<<< RESULT:
+HTTP/2.0 500 Internal Server Error
+Content-Length: 53
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:36:14 GMT
+Expires: Mon, 23 Mar 2026 15:36:14 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"message":"no such resource 'vm:404'\n","data":null}
+2026/03/23 15:36:16 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/ha/resources/404 HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:36:16 <<<<<<<<<< RESULT:
+HTTP/2.0 500 Internal Server Error
+Content-Length: 53
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:36:16 GMT
+Expires: Mon, 23 Mar 2026 15:36:16 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":null,"message":"no such resource 'vm:404'\n"}
+2026/03/23 15:36:19 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/proxmox4/qemu/404/status/current HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:36:19 <<<<<<<<<< RESULT:
+HTTP/2.0 200 OK
+Connection: close
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:36:19 GMT
+Expires: Mon, 23 Mar 2026 15:36:19 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"netin":77837143603,"name":"dockerhost07","ha":{"managed":0},"status":"running","running-qemu":"9.2.0","running-machine":"pc-q35-9.2+pve1","proxmox-support":{"backup-access-api":true,"pbs-library-version":"1.5.2 (994707c2efe70f7bc277bf98a67176dffc4fa2d3)","query-bitmap-info":true,"backup-fleecing":true,"backup-max-workers":true,"pbs-dirty-bitmap-migration":true,"pbs-dirty-bitmap-savevm":true,"pbs-dirty-bitmap":true,"pbs-masterkey":true},"blockstat":{"ide1":{"account_failed":true,"invalid_unmap_operations":0,"wr_bytes":0,"timed_stats":[],"failed_wr_operations":0,"rd_operations":100,"zone_append_operations":0,"zone_append_total_time_ns":0,"failed_zone_append_operations":0,"idle_time_ns":3875764248532063,"rd_total_time_ns":5439882,"failed_flush_operations":0,"unmap_merged":0,"wr_highest_offset":0,"unmap_operations":0,"invalid_wr_operations":0,"failed_rd_operations":0,"wr_merged":0,"failed_unmap_operations":0,"flush_total_time_ns":0,"invalid_rd_operations":0,"unmap_bytes":0,"rd_bytes":344306,"wr_operations":0,"wr_total_time_ns":0,"invalid_flush_operations":0,"flush_operations":0,"zone_append_merged":0,"account_invalid":true,"invalid_zone_append_operations":0,"unmap_total_time_ns":0,"rd_merged":0,"zone_append_bytes":0},"scsi0":{"invalid_zone_append_operations":0,"unmap_total_time_ns":349891486,"rd_merged":0,"zone_append_bytes":0,"flush_operations":651109,"zone_append_merged":0,"account_invalid":true,"wr_operations":5785208,"invalid_flush_operations":0,"wr_total_time_ns":5329995056275,"unmap_bytes":107548745728,"rd_bytes":1967683584,"invalid_rd_operations":0,"failed_rd_operations":0,"invalid_wr_operations":0,"wr_merged":0,"failed_unmap_operations":0,"flush_total_time_ns":847014921907,"unmap_merged":0,"failed_flush_operations":0,"wr_highest_offset":17056956416,"unmap_operations":51433,"failed_wr_operations":0,"rd_operations":78085,"zone_append_total_time_ns":0,"zone_append_operations":0,"rd_total_time_ns":37214401308,"idle_time_ns":448208312,"failed_zone_append_operations":0,"invalid_unmap_operations":0,"account_failed":true,"wr_bytes":38205211648,"timed_stats":[]}},"netout":2406776279,"diskread":1968027890,"agent":1,"qmpstatus":"running","maxdisk":17179869184,"uptime":3875776,"vmid":404,"cpu":0.0108722290503971,"mem":1657940816,"tags":"ci;docker;monitoring_dh","nics":{"tap404i0":{"netout":2406776279,"netin":77837143603}},"maxmem":4294967296,"serial":1,"cpus":2,"disk":0,"pid":2516,"diskwrite":38205211648}}
+2026/03/23 15:36:19 [DEBUG] VM status: running
+2026/03/23 15:36:19 [DEBUG] VM is running, checking the IP
+2026/03/23 15:36:19 [INFO][initConnInfo] trying to get vm ip address for provisioner
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1886[0m[36m >[0m [1mtrying to get vm ip address for provisioner[0m [36mloggerName=[0minitConnInfo [36mvmid=[0m404
+2026/03/23 15:36:19 [DEBUG][initConnInfo] retrying for at most  20m0s minutes before giving up
+2026/03/23 15:36:19 [DEBUG][initConnInfo] retries will end at 2026-03-23 15:56:19.363512214 +0000 UTC m=+1206.224738933
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1893[0m[36m >[0m retrying for at most  20m0s minutes before giving up [36mloggerName=[0minitConnInfo [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1894[0m[36m >[0m retries will end at 2026-03-23 15:56:19.363512214 +0000 UTC m=+1206.224738933 [36mloggerName=[0minitConnInfo [36mvmid=[0m404
+2026/03/23 15:36:19 [INFO][getPrimaryIP] vm has a cloud-init configuration
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1937[0m[36m >[0m  vm has a cloud-init configuration [36mloggerName=[0mgetPrimaryIP [36mvmid=[0m404
+2026/03/23 15:36:19 [DEBUG][initConnInfo] this is the vm configuration: 192.168.50.45 22
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1909[0m[36m >[0m this is the vm configuration: 192.168.50.45 22 [36mloggerName=[0minitConnInfo [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1500[0m[36m >[0m [READ] Received Config from Proxmox API: {"agent":{"enable":true},"bios":"seabios","boot":"order=scsi0","cpu":{"cores":2,"numa":false,"sockets":1,"type":"host"},"cloudinit":{"dns":{"nameservers":["192.168.50.5","192.168.50.6"],"searchdomain":""},"ipconfig":{"0":{"ip4":{"address":"192.168.50.45/24","gateway":"192.168.50.10"},"ip6":{"dhcp":true}}},"sshkeys":["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6OM3GH4Y5+4y1B229qxKEN9rIuwuPBosJp+QF8DmVt dj_pr@zorab-surface"],"ciupgrade":true,"userpassword":"**********","username":"ciuser"},"disks":{"ide":{"1":{"cloudinit":{"format":"raw","storage":"local-lvm"}}},"scsi":{"0":{"disk":{"backup":true,"bandwidth":{"mbps":{"read":{},"write":{}},"iops":{"read":{},"write":{}}},"discard":false,"emulatessd":false,"format":"raw","id":0,"iothread":false,"linked":null,"readonly":false,"replicate":false,"size":16777216,"storage":"local-lvm","wwn":""}}}},"efidisk":{"efitype":"4m","file":"vm-404-disk-0","pre-enrolled-keys":1,"size":"1M","storage":"ceph-pool","volume":"ceph-pool:vm-404-disk-0"},"hotplug":"network,disk,usb","machine":"q35","memory":{"capacity":4096,"balloon":0},"name":"dockerhost07","node":"proxmox4","onboot":true,"pool":"","protection":false,"kvm":true,"network":{"0":{"bridge":"vmbr0","id":0,"macaddr":"6E:6D:D8:80:AD:F2","model":"virtio"}},"ostype":"other","scsihw":"virtio-scsi-single","serials":{"0":{"socket":true}},"smbios1":"uuid=2a0989b3-e5ee-46dc-a73f-5379cfc30e47","tablet":true,"tags":["ci","docker","monitoring_dh"],"vmid":404} [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1541[0m[36m >[0m key 'force_create' is set to false [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1541[0m[36m >[0m key 'define_connection_info' is set to true [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1555[0m[36m >[0m Hostpci Block Processed 'map[]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1563[0m[36m >[0m Usb Block Processed 'map[]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1570[0m[36m >[0m Unused Disk Block Processed 'map[]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1584[0m[36m >[0m Analyzing Network blocks  [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1586[0m[36m >[0m Network block received 'map[bridge:vmbr0 id:0 macaddr:6E:6D:D8:80:AD:F2 model:virtio]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1617[0m[36m >[0m VM Net Config 'map[0:map[bridge:vmbr0 id:0 macaddr:6E:6D:D8:80:AD:F2 model:virtio tag:-1]]' from '[map[bridge:vmbr0 macaddr:6E:6D:D8:80:AD:F2 model:virtio tag:-1]]' set as '[map[bridge:vmbr0 firewall:false link_down:false macaddr:6E:6D:D8:80:AD:F2 model:virtio mtu:0 queues:0 rate:0 tag:-1]]' type of 'string' [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:36:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1619[0m[36m >[0m Finished VM read resulting in data: '' [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:39:57 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/util.go:158[0m[36m >[0m [1mEnabling the capture of log-library logs as ithe _capturelog flag was detected[0m
+[90mMon, 23 Mar 2026 15:39:57 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/util.go:191[0m[36m >[0m [1mLogging Started. Root Logger Set to level debug[0m
+[90mMon, 23 Mar 2026 15:39:57 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1432[0m[36m >[0m [1mReading configuration for vmid[0m [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+2026/03/23 15:39:57 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:39:57 <<<<<<<<<< RESULT:
+HTTP/2.0 200 OK
+Connection: close
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:39:57 GMT
+Expires: Mon, 23 Mar 2026 15:39:57 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"maxcpu":1,"id":"qemu/100","node":"proxmox5","maxdisk":25769803776,"status":"running","mem":3768393728,"uptime":3700425,"maxmem":4294967296,"vmid":100,"name":"ollama","cpu":0.0527188684890425,"type":"qemu","tags":"terraform","netout":463492709,"disk":0,"netin":82580631852,"diskwrite":108824102912,"template":0,"diskread":18080708580},{"template":0,"diskwrite":207328083968,"diskread":978018877440,"type":"lxc","tags":"ci;dns;prod;proxmox-helper-scripts;tailscale","netout":5470202159,"netin":79742356069,"disk":5479124992,"maxdisk":8350298112,"node":"proxmox3","status":"running","mem":336179200,"uptime":3875491,"vmid":101,"maxmem":1073741824,"cpu":0.0129146746214961,"name":"pihole1","id":"lxc/101","maxcpu":2},{"cpu":0.0196679622551738,"name":"pulse","vmid":103,"maxmem":2147483648,"uptime":1238739,"mem":781049856,"node":"proxmox2","maxdisk":8369172480,"status":"running","maxcpu":2,"id":"lxc/103","diskread":24713302016,"diskwrite":6477040009216,"template":0,"disk":4862738432,"netin":79448048293,"netout":8900434931,"tags":"ci","type":"lxc"},{"netin":75767357117,"disk":917233664,"tags":"community-script;debian;os;tailscale","type":"lxc","netout":220898869,"diskwrite":489062400,"template":0,"diskread":174977024,"id":"lxc/104","maxcpu":1,"maxmem":536870912,"vmid":104,"cpu":0.0015463754107262,"name":"tailscale","node":"proxmox2","maxdisk":4143677440,"status":"running","uptime":3876923,"mem":52174848},{"diskread":3693633942,"template":0,"diskwrite":106679903232,"netin":195129471175,"disk":0,"netout":153714986564,"type":"qemu","tags":"docker;monitoring_dh;prod","cpu":0.0869917738519815,"name":"dockerhost01","vmid":105,"maxmem":6442450944,"uptime":3876504,"mem":5509337088,"maxdisk":42949672960,"node":"proxmox3","status":"running","id":"qemu/105","maxcpu":2},{"id":"qemu/106","maxcpu":4,"vmid":106,"maxmem":8589934592,"cpu":0.0451527345855225,"name":"dockerhost02","status":"running","maxdisk":34359738368,"node":"proxmox5","mem":7309578240,"uptime":3875806,"disk":0,"netin":135681057478,"tags":"beszel_dh;docker;monitoring_dh;prod","type":"qemu","netout":24975794515,"template":0,"diskwrite":307040721920,"diskread":4673019392},{"maxcpu":2,"id":"qemu/107","vmid":107,"maxmem":6442450944,"name":"haos10.1","cpu":0.0317289486276644,"maxdisk":34359738368,"node":"proxmox5","status":"running","uptime":3875801,"mem":5190193152,"disk":0,"netin":88144472107,"tags":"home-assistant;prod","type":"qemu","netout":8749805910,"template":0,"diskwrite":203360924160,"diskread":1585738240},{"maxcpu":2,"id":"lxc/108","cpu":0.00193296926340775,"name":"netvisor","vmid":108,"maxmem":3221225472,"uptime":3876920,"mem":62058496,"maxdisk":6249086976,"node":"proxmox2","status":"running","disk":4357431296,"netin":75376605449,"netout":3379002,"type":"lxc","tags":"analytics;community-script","diskread":680280064,"diskwrite":74852298752,"template":0},{"diskwrite":41071144960,"template":0,"diskread":916013056,"type":"lxc","tags":"ci;community-script;pihole","netout":311422823,"disk":1997570048,"netin":75884555190,"node":"proxmox5","maxdisk":4143677440,"status":"running","uptime":3875795,"mem":108523520,"vmid":109,"maxmem":536870912,"cpu":0.000890360602693597,"name":"pihole3","maxcpu":2,"id":"lxc/109"},{"template":0,"diskwrite":0,"diskread":0,"type":"lxc","tags":"community-script;notification","netout":0,"disk":0,"netin":0,"status":"stopped","maxdisk":2147483648,"node":"proxmox2","mem":0,"uptime":0,"vmid":111,"maxmem":536870912,"cpu":0,"name":"gotify","id":"lxc/111","maxcpu":1},{"netout":342465556,"type":"lxc","tags":"adblock;ci;community-script","disk":1260175360,"netin":75740638790,"diskread":1535979520,"diskwrite":42600153088,"template":0,"id":"lxc/113","maxcpu":1,"mem":134713344,"uptime":3876913,"status":"running","maxdisk":2040373248,"node":"proxmox2","cpu":0.00318939928462278,"name":"pihole4","maxmem":536870912,"vmid":113},{"netout":0,"type":"qemu","disk":0,"netin":0,"diskread":0,"template":0,"diskwrite":0,"maxcpu":2,"id":"qemu/114","mem":0,"uptime":0,"status":"stopped","maxdisk":89120571392,"node":"proxmox2","name":"bigip-ve-17","cpu":0,"vmid":114,"maxmem":4294967296},{"maxcpu":4,"id":"qemu/201","node":"proxmox3","maxdisk":17179869184,"status":"running","mem":7851991040,"uptime":2058617,"vmid":201,"maxmem":8589934592,"cpu":0.0176118315160453,"name":"ansible","type":"qemu","tags":"ansible;ci;prod;tools","netout":849091937,"disk":0,"netin":65066615198,"diskwrite":31387776000,"template":0,"diskread":3571192196},{"disk":0,"netin":270930424315,"type":"qemu","tags":"docker;frontend;monitoring_dh","netout":132184194428,"template":0,"diskwrite":475477618688,"diskread":81503513678,"maxcpu":4,"id":"qemu/300","vmid":300,"maxmem":8589934592,"cpu":0.0362483031281974,"name":"frontend","maxdisk":137438953472,"status":"running","node":"proxmox4","mem":8054771712,"uptime":3875994},{"diskwrite":169697215488,"template":0,"diskread":9551610526,"netin":94468432650,"disk":0,"tags":"backend;ci;docker;monitoring_dh","type":"qemu","netout":31301935578,"vmid":301,"maxmem":8589934592,"name":"backend","cpu":0.041894811333623,"status":"running","maxdisk":137438953472,"node":"proxmox3","mem":7949537280,"uptime":3876493,"maxcpu":4,"id":"qemu/301"},{"name":"dockerhost04","cpu":0.0102508910950916,"maxmem":2147483648,"vmid":401,"mem":1768022016,"uptime":3258998,"maxdisk":12348030976,"node":"proxmox5","status":"running","id":"qemu/401","maxcpu":2,"diskread":9611513602,"diskwrite":40072078336,"template":0,"disk":0,"netin":76011502569,"netout":6989437777,"type":"qemu","tags":"ci;docker;monitoring_dh"},{"tags":"docker;monitoring_dh","type":"qemu","netout":8491215621,"netin":81967724383,"disk":0,"diskwrite":137618314240,"template":0,"diskread":2339256488,"id":"qemu/403","maxcpu":2,"node":"proxmox4","maxdisk":17179869184,"status":"running","mem":7201034240,"uptime":3875989,"maxmem":8589934592,"vmid":403,"name":"dockerhost05","cpu":0.0272470466466987},{"maxdisk":17179869184,"node":"proxmox4","status":"running","uptime":3875985,"mem":1672455549,"vmid":404,"maxmem":4294967296,"cpu":0.00875797927929602,"name":"dockerhost07","maxcpu":2,"id":"qemu/404","diskwrite":38206764032,"template":0,"diskread":1968027890,"type":"qemu","tags":"ci;docker;monitoring_dh","netout":2406923322,"disk":0,"netin":77844069835},{"node":"proxmox5","maxdisk":25769803776,"status":"running","mem":2691874088,"uptime":3872457,"vmid":411,"maxmem":4294967296,"cpu":0.033193361641249,"name":"dockerhost06","maxcpu":2,"id":"qemu/411","diskwrite":82893915136,"template":0,"diskread":10033619554,"type":"qemu","tags":"ci;dockerhost;monitoring_dh","netout":10873996664,"disk":0,"netin":80009749730},{"netout":0,"type":"qemu","netin":0,"disk":0,"diskread":0,"template":0,"diskwrite":0,"id":"qemu/700","maxcpu":2,"mem":0,"uptime":0,"status":"stopped","maxdisk":17179869184,"node":"proxmox3","name":"pbc","cpu":0,"vmid":700,"maxmem":2147483648},{"template":1,"diskwrite":0,"diskread":0,"type":"qemu","netout":0,"netin":0,"disk":0,"status":"stopped","maxdisk":3758096384,"node":"proxmox5","mem":0,"uptime":0,"maxmem":2147483648,"vmid":9000,"name":"ubuntu-cloud-init-template","cpu":0,"id":"qemu/9000","maxcpu":2},{"id":"qemu/9005","maxcpu":1,"cpu":0,"name":"debian12-cloudinit","vmid":9005,"maxmem":536870912,"mem":0,"uptime":0,"status":"stopped","maxdisk":0,"node":"proxmox5","netin":0,"disk":0,"netout":0,"type":"qemu","diskread":0,"template":1,"diskwrite":0}]}
+2026/03/23 15:39:57 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/proxmox4/qemu/404/config HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:39:57 <<<<<<<<<< RESULT:
+HTTP/2.0 200 OK
+Connection: close
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:39:57 GMT
+Expires: Mon, 23 Mar 2026 15:39:57 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"smbios1":"uuid=2a0989b3-e5ee-46dc-a73f-5379cfc30e47","ciuser":"ciuser","hotplug":"network,disk,usb","tablet":1,"ipconfig0":"ip=192.168.50.45/24,gw=192.168.50.10,ip6=dhcp","memory":"4096","serial0":"socket","cicustom":" ","cipassword":"**********","scsihw":"virtio-scsi-single","vmgenid":"333785d2-fbc7-4c9a-90c7-8543900842d0","sshkeys":"ssh-ed25519%20AAAAC3NzaC1lZDI1NTE5AAAAIM6OM3GH4Y5%2B4y1B229qxKEN9rIuwuPBosJp%2BQF8DmVt%20dj_pr%40zorab-surface%0A","tags":"ci;docker;monitoring_dh","net0":"virtio=6E:6D:D8:80:AD:F2,bridge=vmbr0","kvm":1,"meta":"creation-qemu=9.2.0,ctime=1749504457","numa":0,"ciupgrade":1,"machine":"q35","ide1":"local-lvm:vm-404-cloudinit,media=cdrom","digest":"2fd6af56254605d3e2bd207395ad78b71d4b80fc","agent":"1","efidisk0":"ceph-pool:vm-404-disk-0,efitype=4m,pre-enrolled-keys=1,size=1M","balloon":0,"cpu":"host","name":"dockerhost07","scsi0":"local-lvm:vm-404-disk-0,replicate=0,size=16G","sockets":1,"nameserver":"192.168.50.5 192.168.50.6","cores":2,"protection":0,"onboot":1,"bios":"seabios","boot":"order=scsi0"}}
+2026/03/23 15:39:57 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:39:57 <<<<<<<<<< RESULT:
+HTTP/2.0 200 OK
+Connection: close
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:39:57 GMT
+Expires: Mon, 23 Mar 2026 15:39:57 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"diskread":18080708580,"diskwrite":108824102912,"template":0,"netout":463492709,"tags":"terraform","type":"qemu","disk":0,"netin":82580631852,"uptime":3700425,"mem":3768393728,"maxdisk":25769803776,"status":"running","node":"proxmox5","name":"ollama","cpu":0.0527188684890425,"vmid":100,"maxmem":4294967296,"id":"qemu/100","maxcpu":1},{"maxcpu":2,"id":"lxc/101","vmid":101,"maxmem":1073741824,"cpu":0.0129146746214961,"name":"pihole1","status":"running","maxdisk":8350298112,"node":"proxmox3","mem":336179200,"uptime":3875491,"netin":79742356069,"disk":5479124992,"type":"lxc","tags":"ci;dns;prod;proxmox-helper-scripts;tailscale","netout":5470202159,"diskwrite":207328083968,"template":0,"diskread":978018877440},{"maxcpu":2,"id":"lxc/103","mem":781049856,"uptime":1238739,"maxdisk":8369172480,"node":"proxmox2","status":"running","cpu":0.0196679622551738,"name":"pulse","vmid":103,"maxmem":2147483648,"netout":8900434931,"type":"lxc","tags":"ci","netin":79448048293,"disk":4862738432,"diskread":24713302016,"template":0,"diskwrite":6477040009216},{"template":0,"diskwrite":489062400,"diskread":174977024,"disk":917233664,"netin":75767357117,"tags":"community-script;debian;os;tailscale","type":"lxc","netout":220898869,"maxmem":536870912,"vmid":104,"name":"tailscale","cpu":0.0015463754107262,"status":"running","maxdisk":4143677440,"node":"proxmox2","uptime":3876923,"mem":52174848,"id":"lxc/104","maxcpu":1},{"id":"qemu/105","maxcpu":2,"node":"proxmox3","maxdisk":42949672960,"status":"running","mem":5509337088,"uptime":3876504,"maxmem":6442450944,"vmid":105,"cpu":0.0869917738519815,"name":"dockerhost01","tags":"docker;monitoring_dh;prod","type":"qemu","netout":153714986564,"netin":195129471175,"disk":0,"diskwrite":106679903232,"template":0,"diskread":3693633942},{"diskread":4673019392,"diskwrite":307040721920,"template":0,"netout":24975794515,"type":"qemu","tags":"beszel_dh;docker;monitoring_dh;prod","netin":135681057478,"disk":0,"uptime":3875806,"mem":7309578240,"status":"running","maxdisk":34359738368,"node":"proxmox5","cpu":0.0451527345855225,"name":"dockerhost02","vmid":106,"maxmem":8589934592,"maxcpu":4,"id":"qemu/106"},{"maxcpu":2,"id":"qemu/107","uptime":3875801,"mem":5190193152,"maxdisk":34359738368,"status":"running","node":"proxmox5","cpu":0.0317289486276644,"name":"haos10.1","vmid":107,"maxmem":6442450944,"netout":8749805910,"type":"qemu","tags":"home-assistant;prod","disk":0,"netin":88144472107,"diskread":1585738240,"template":0,"diskwrite":203360924160},{"vmid":108,"maxmem":3221225472,"name":"netvisor","cpu":0.00193296926340775,"maxdisk":6249086976,"status":"running","node":"proxmox2","uptime":3876920,"mem":62058496,"id":"lxc/108","maxcpu":2,"template":0,"diskwrite":74852298752,"diskread":680280064,"disk":4357431296,"netin":75376605449,"type":"lxc","tags":"analytics;community-script","netout":3379002},{"maxdisk":4143677440,"node":"proxmox5","status":"running","uptime":3875795,"mem":108523520,"vmid":109,"maxmem":536870912,"cpu":0.000890360602693597,"name":"pihole3","maxcpu":2,"id":"lxc/109","diskwrite":41071144960,"template":0,"diskread":916013056,"tags":"ci;community-script;pihole","type":"lxc","netout":311422823,"disk":1997570048,"netin":75884555190},{"status":"stopped","maxdisk":2147483648,"node":"proxmox2","uptime":0,"mem":0,"vmid":111,"maxmem":536870912,"cpu":0,"name":"gotify","maxcpu":1,"id":"lxc/111","diskwrite":0,"template":0,"diskread":0,"tags":"community-script;notification","type":"lxc","netout":0,"disk":0,"netin":0},{"netout":342465556,"type":"lxc","tags":"adblock;ci;community-script","netin":75740638790,"disk":1260175360,"diskread":1535979520,"template":0,"diskwrite":42600153088,"maxcpu":1,"id":"lxc/113","uptime":3876913,"mem":134713344,"maxdisk":2040373248,"node":"proxmox2","status":"running","name":"pihole4","cpu":0.00318939928462278,"vmid":113,"maxmem":536870912},{"maxmem":4294967296,"vmid":114,"cpu":0,"name":"bigip-ve-17","maxdisk":89120571392,"node":"proxmox2","status":"stopped","uptime":0,"mem":0,"id":"qemu/114","maxcpu":2,"template":0,"diskwrite":0,"diskread":0,"netin":0,"disk":0,"type":"qemu","netout":0},{"id":"qemu/201","maxcpu":4,"vmid":201,"maxmem":8589934592,"name":"ansible","cpu":0.0176118315160453,"maxdisk":17179869184,"node":"proxmox3","status":"running","mem":7851991040,"uptime":2058617,"disk":0,"netin":65066615198,"tags":"ansible;ci;prod;tools","type":"qemu","netout":849091937,"template":0,"diskwrite":31387776000,"diskread":3571192196},{"type":"qemu","tags":"docker;frontend;monitoring_dh","netout":132184194428,"netin":270930424315,"disk":0,"diskwrite":475477618688,"template":0,"diskread":81503513678,"maxcpu":4,"id":"qemu/300","maxdisk":137438953472,"status":"running","node":"proxmox4","uptime":3875994,"mem":8054771712,"maxmem":8589934592,"vmid":300,"cpu":0.0362483031281974,"name":"frontend"},{"netout":31301935578,"tags":"backend;ci;docker;monitoring_dh","type":"qemu","netin":94468432650,"disk":0,"diskread":9551610526,"template":0,"diskwrite":169697215488,"id":"qemu/301","maxcpu":4,"uptime":3876493,"mem":7949537280,"maxdisk":137438953472,"node":"proxmox3","status":"running","cpu":0.041894811333623,"name":"backend","maxmem":8589934592,"vmid":301},{"netin":76011502569,"disk":0,"tags":"ci;docker;monitoring_dh","type":"qemu","netout":6989437777,"template":0,"diskwrite":40072078336,"diskread":9611513602,"id":"qemu/401","maxcpu":2,"maxmem":2147483648,"vmid":401,"cpu":0.0102508910950916,"name":"dockerhost04","node":"proxmox5","maxdisk":12348030976,"status":"running","mem":1768022016,"uptime":3258998},{"disk":0,"netin":81967724383,"netout":8491215621,"tags":"docker;monitoring_dh","type":"qemu","diskread":2339256488,"diskwrite":137618314240,"template":0,"maxcpu":2,"id":"qemu/403","cpu":0.0272470466466987,"name":"dockerhost05","vmid":403,"maxmem":8589934592,"mem":7201034240,"uptime":3875989,"maxdisk":17179869184,"node":"proxmox4","status":"running"},{"cpu":0.00875797927929602,"name":"dockerhost07","maxmem":4294967296,"vmid":404,"uptime":3875985,"mem":1672455549,"node":"proxmox4","maxdisk":17179869184,"status":"running","id":"qemu/404","maxcpu":2,"diskread":1968027890,"diskwrite":38206764032,"template":0,"disk":0,"netin":77844069835,"netout":2406923322,"type":"qemu","tags":"ci;docker;monitoring_dh"},{"maxcpu":2,"id":"qemu/411","uptime":3872457,"mem":2691874088,"node":"proxmox5","maxdisk":25769803776,"status":"running","cpu":0.033193361641249,"name":"dockerhost06","vmid":411,"maxmem":4294967296,"netout":10873996664,"type":"qemu","tags":"ci;dockerhost;monitoring_dh","disk":0,"netin":80009749730,"diskread":10033619554,"template":0,"diskwrite":82893915136},{"diskwrite":0,"template":0,"diskread":0,"type":"qemu","netout":0,"disk":0,"netin":0,"node":"proxmox3","maxdisk":17179869184,"status":"stopped","mem":0,"uptime":0,"vmid":700,"maxmem":2147483648,"name":"pbc","cpu":0,"maxcpu":2,"id":"qemu/700"},{"id":"qemu/9000","maxcpu":2,"mem":0,"uptime":0,"maxdisk":3758096384,"status":"stopped","node":"proxmox5","name":"ubuntu-cloud-init-template","cpu":0,"vmid":9000,"maxmem":2147483648,"netout":0,"type":"qemu","netin":0,"disk":0,"diskread":0,"template":1,"diskwrite":0},{"diskread":0,"template":1,"diskwrite":0,"disk":0,"netin":0,"netout":0,"type":"qemu","name":"debian12-cloudinit","cpu":0,"maxmem":536870912,"vmid":9005,"uptime":0,"mem":0,"status":"stopped","maxdisk":0,"node":"proxmox5","id":"qemu/9005","maxcpu":1}]}
+2026/03/23 15:39:57 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/ha/resources/404 HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:39:57 <<<<<<<<<< RESULT:
+HTTP/2.0 500 Internal Server Error
+Content-Length: 53
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:39:57 GMT
+Expires: Mon, 23 Mar 2026 15:39:57 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"message":"no such resource 'vm:404'\n","data":null}
+2026/03/23 15:39:58 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/ha/resources/404 HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:39:58 <<<<<<<<<< RESULT:
+HTTP/2.0 500 Internal Server Error
+Content-Length: 53
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:39:58 GMT
+Expires: Mon, 23 Mar 2026 15:39:58 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"message":"no such resource 'vm:404'\n","data":null}
+2026/03/23 15:40:00 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/ha/resources/404 HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:40:00 <<<<<<<<<< RESULT:
+HTTP/2.0 500 Internal Server Error
+Content-Length: 53
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:40:00 GMT
+Expires: Mon, 23 Mar 2026 15:40:00 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":null,"message":"no such resource 'vm:404'\n"}
+2026/03/23 15:40:03 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/proxmox4/qemu/404/status/current HTTP/1.1
+Host: proxmox4.zorab.im
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform-user@pve!terraform-token=8d1890af-ae41-4b60-9011-24c161882eed
+Accept-Encoding: gzip
+
+2026/03/23 15:40:03 <<<<<<<<<< RESULT:
+HTTP/2.0 200 OK
+Connection: close
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 23 Mar 2026 15:40:03 GMT
+Expires: Mon, 23 Mar 2026 15:40:03 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"name":"dockerhost07","netin":77844621646,"status":"running","ha":{"managed":0},"running-qemu":"9.2.0","running-machine":"pc-q35-9.2+pve1","proxmox-support":{"pbs-dirty-bitmap-migration":true,"query-bitmap-info":true,"backup-access-api":true,"backup-fleecing":true,"pbs-library-version":"1.5.2 (994707c2efe70f7bc277bf98a67176dffc4fa2d3)","backup-max-workers":true,"pbs-dirty-bitmap":true,"pbs-masterkey":true,"pbs-dirty-bitmap-savevm":true},"netout":2406938922,"blockstat":{"ide1":{"zone_append_merged":0,"flush_operations":0,"account_invalid":true,"unmap_total_time_ns":0,"invalid_zone_append_operations":0,"zone_append_bytes":0,"rd_merged":0,"unmap_bytes":0,"rd_bytes":344306,"invalid_rd_operations":0,"wr_operations":0,"wr_total_time_ns":0,"invalid_flush_operations":0,"unmap_merged":0,"failed_flush_operations":0,"wr_highest_offset":0,"unmap_operations":0,"failed_rd_operations":0,"invalid_wr_operations":0,"flush_total_time_ns":0,"wr_merged":0,"failed_unmap_operations":0,"wr_bytes":0,"invalid_unmap_operations":0,"account_failed":true,"timed_stats":[],"rd_operations":100,"failed_wr_operations":0,"idle_time_ns":3875988090507831,"rd_total_time_ns":5439882,"failed_zone_append_operations":0,"zone_append_total_time_ns":0,"zone_append_operations":0},"scsi0":{"flush_operations":651136,"zone_append_merged":0,"account_invalid":true,"invalid_zone_append_operations":0,"unmap_total_time_ns":349891486,"rd_merged":0,"zone_append_bytes":0,"rd_bytes":1967683584,"unmap_bytes":107548745728,"invalid_rd_operations":0,"wr_operations":5785536,"wr_total_time_ns":5330211576865,"invalid_flush_operations":0,"unmap_merged":0,"failed_flush_operations":0,"unmap_operations":51433,"wr_highest_offset":17056956416,"failed_rd_operations":0,"invalid_wr_operations":0,"wr_merged":0,"failed_unmap_operations":0,"flush_total_time_ns":847029640067,"invalid_unmap_operations":0,"account_failed":true,"wr_bytes":38206780416,"timed_stats":[],"failed_wr_operations":0,"rd_operations":78085,"zone_append_total_time_ns":0,"zone_append_operations":0,"idle_time_ns":10530442427,"rd_total_time_ns":37214401308,"failed_zone_append_operations":0}},"diskread":1968027890,"agent":1,"qmpstatus":"running","maxdisk":17179869184,"uptime":3876000,"mem":1675845852,"cpu":0.0134204588083335,"vmid":404,"nics":{"tap404i0":{"netout":2406938922,"netin":77844621646}},"maxmem":4294967296,"tags":"ci;docker;monitoring_dh","serial":1,"cpus":2,"disk":0,"diskwrite":38206780416,"pid":2516}}
+2026/03/23 15:40:03 [DEBUG] VM status: running
+2026/03/23 15:40:03 [DEBUG] VM is running, checking the IP
+2026/03/23 15:40:03 [INFO][initConnInfo] trying to get vm ip address for provisioner
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1886[0m[36m >[0m [1mtrying to get vm ip address for provisioner[0m [36mloggerName=[0minitConnInfo [36mvmid=[0m404
+2026/03/23 15:40:03 [DEBUG][initConnInfo] retrying for at most  20m0s minutes before giving up
+2026/03/23 15:40:03 [DEBUG][initConnInfo] retries will end at 2026-03-23 16:00:03.201369932 +0000 UTC m=+1206.182168105
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1893[0m[36m >[0m retrying for at most  20m0s minutes before giving up [36mloggerName=[0minitConnInfo [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1894[0m[36m >[0m retries will end at 2026-03-23 16:00:03.201369932 +0000 UTC m=+1206.182168105 [36mloggerName=[0minitConnInfo [36mvmid=[0m404
+2026/03/23 15:40:03 [INFO][getPrimaryIP] vm has a cloud-init configuration
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1937[0m[36m >[0m  vm has a cloud-init configuration [36mloggerName=[0mgetPrimaryIP [36mvmid=[0m404
+2026/03/23 15:40:03 [DEBUG][initConnInfo] this is the vm configuration: 192.168.50.45 22
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1909[0m[36m >[0m this is the vm configuration: 192.168.50.45 22 [36mloggerName=[0minitConnInfo [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1500[0m[36m >[0m [READ] Received Config from Proxmox API: {"agent":{"enable":true},"bios":"seabios","boot":"order=scsi0","cpu":{"cores":2,"numa":false,"sockets":1,"type":"host"},"cloudinit":{"dns":{"nameservers":["192.168.50.5","192.168.50.6"],"searchdomain":""},"ipconfig":{"0":{"ip4":{"address":"192.168.50.45/24","gateway":"192.168.50.10"},"ip6":{"dhcp":true}}},"sshkeys":["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6OM3GH4Y5+4y1B229qxKEN9rIuwuPBosJp+QF8DmVt dj_pr@zorab-surface"],"ciupgrade":true,"userpassword":"**********","username":"ciuser"},"disks":{"ide":{"1":{"cloudinit":{"format":"raw","storage":"local-lvm"}}},"scsi":{"0":{"disk":{"backup":true,"bandwidth":{"mbps":{"read":{},"write":{}},"iops":{"read":{},"write":{}}},"discard":false,"emulatessd":false,"format":"raw","id":0,"iothread":false,"linked":null,"readonly":false,"replicate":false,"size":16777216,"storage":"local-lvm","wwn":""}}}},"efidisk":{"efitype":"4m","file":"vm-404-disk-0","pre-enrolled-keys":1,"size":"1M","storage":"ceph-pool","volume":"ceph-pool:vm-404-disk-0"},"hotplug":"network,disk,usb","machine":"q35","memory":{"capacity":4096,"balloon":0},"name":"dockerhost07","node":"proxmox4","onboot":true,"pool":"","protection":false,"kvm":true,"network":{"0":{"bridge":"vmbr0","id":0,"macaddr":"6E:6D:D8:80:AD:F2","model":"virtio"}},"ostype":"other","scsihw":"virtio-scsi-single","serials":{"0":{"socket":true}},"smbios1":"uuid=2a0989b3-e5ee-46dc-a73f-5379cfc30e47","tablet":true,"tags":["ci","docker","monitoring_dh"],"vmid":404} [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1541[0m[36m >[0m key 'force_create' is set to false [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1541[0m[36m >[0m key 'define_connection_info' is set to true [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1555[0m[36m >[0m Hostpci Block Processed 'map[]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1563[0m[36m >[0m Usb Block Processed 'map[]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1570[0m[36m >[0m Unused Disk Block Processed 'map[]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1584[0m[36m >[0m Analyzing Network blocks  [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1586[0m[36m >[0m Network block received 'map[bridge:vmbr0 id:0 macaddr:6E:6D:D8:80:AD:F2 model:virtio]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1617[0m[36m >[0m VM Net Config 'map[0:map[bridge:vmbr0 id:0 macaddr:6E:6D:D8:80:AD:F2 model:virtio tag:-1]]' from '[map[bridge:vmbr0 macaddr:6E:6D:D8:80:AD:F2 model:virtio tag:-1]]' set as '[map[bridge:vmbr0 firewall:false link_down:false macaddr:6E:6D:D8:80:AD:F2 model:virtio mtu:0 queues:0 rate:0 tag:-1]]' type of 'string' [36mloggerName=[0mresource_vm_read [36mvmid=[0m404
+[90mMon, 23 Mar 2026 15:40:03 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1619[0m[36m >[0m Finished VM read resulting in data: '' [36mloggerName=[0mresource_vm_read [36mvmid=[0m404

@@ -1,0 +1,29 @@
+#cloud-config
+timezone: Etc/UTC
+users:
+  # - default
+  - name: ciuser
+    gecos: CI User
+    shell: /bin/bash
+    groups: [sudo, adm]
+    lock_passwd: false
+    sudo: "ALL=(ALL) NOPASSWD:ALL"
+    #  mkpasswd --method=sha-512 password123
+    passwd: "$6$bZbLRElZGlrm0iWx$CCcZfecK3y.81hADtUXtrb0zDHJQOOr1Y7scYZD19620WOPLg6DYdWEu2rU7vNMxOKOFoZZa33FDnF9VrQbJF0"
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzYFhKI//Bn92MEEFUmRHPIPOrpa0fIHJPN2WQj1pCj ansible
+# deprecated method for setting password, use 'password' field with hashed password instead
+# chpasswd:
+#   list: |
+#     ciuser:password123
+#   expire: False
+package_update: true
+packages:
+  - qemu-guest-agent
+  - net-tools
+  - curl
+  - rsync
+runcmd:
+  - systemctl enable qemu-guest-agent
+  - systemctl start qemu-guest-agent
+  - echo "done" > /tmp/cloud-config.done

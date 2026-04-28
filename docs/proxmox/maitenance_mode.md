@@ -11,7 +11,7 @@ Enbled CEPH maitenance mode
 
 stop and wait for scrub and deep-scrub operations
 
-```
+```sh
 ceph osd set noscrub
 ceph osd set nodeep-scrub
 ceph status
